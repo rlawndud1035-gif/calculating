@@ -1,6 +1,65 @@
+// Firebase Configuration (Replace with your actual config)
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// Initialize Firebase
+if (typeof firebase !== 'undefined') {
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  // Auth DOM Elements
+  const authContainer = document.getElementById('auth-container');
+  const btnLogin = document.getElementById('btn-login');
+
+  // Login Function
+  if (btnLogin) {
+    btnLogin.addEventListener('click', () => {
+      auth.signInWithPopup(provider).catch(error => {
+        console.error("Login failed:", error);
+      });
+    });
+  }
+
+  // Update Auth UI
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      authContainer.innerHTML = `
+        <div class="user-profile">
+          <img src="${user.photoURL}" alt="${user.displayName}" class="user-avatar">
+          <span class="user-name">${user.displayName}</span>
+          <button id="btn-logout" class="btn-logout">로그아웃</button>
+        </div>
+      `;
+      document.getElementById('btn-logout').addEventListener('click', () => {
+        auth.signOut();
+      });
+    } else {
+      authContainer.innerHTML = `
+        <button id="btn-login" class="btn-login">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google icon">
+          <span>Google로 로그인</span>
+        </button>
+      `;
+      const newLoginBtn = document.getElementById('btn-login');
+      if (newLoginBtn) {
+        newLoginBtn.addEventListener('click', () => {
+          auth.signInWithPopup(provider);
+        });
+      }
+    }
+  });
+}
+
 // Calculator Registry
 const calculators = [
-  {
+...
     id: 'stock-dividend',
     title: '주식 배당금 계산기',
     description: '배당금 수익과 세금(15.4%)을 제외한 실수령액을 계산합니다.',
