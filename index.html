@@ -1,14 +1,66 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>다재다능 계산기 Hub - 생활과 업무의 모든 계산</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link href='/style.css' rel='stylesheet'>
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+  <div id="app">
+    <header class="header">
+      <div class="logo-container">
+        <h1 class="logo">다재다능 계산기 Hub</h1>
+      </div>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="계산기를 검색해 보세요 (예: 연봉, 대출, 시급...)" />
+      </div>
+    </header>
+
+    <div class="main-layout">
+      <aside class="sidebar">
+        <nav>
+          <ul class="category-list">
+            <li class="category-item active" data-category="all">전체</li>
+            <li class="category-item" data-category="finance">금융/투자</li>
+            <li class="category-item" data-category="tax">세금/연봉</li>
+            <li class="category-item" data-category="business">업무/비즈니스</li>
+            <li class="category-item" data-category="life">생활/일반</li>
+            <li class="category-item" data-category="health">건강</li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="content-area">
+        <div id="calculator-grid-container">
+          <section class="hero-section">
+            <h2>필요한 모든 계산을 한 번에 💡</h2>
+            <p>금융, 세금, 업무, 일상생활까지 스마트하게 계산해 보세요.</p>
+          </section>
+          <div id="calculator-grid" class="calculator-grid">
+            <!-- Calculator cards will be rendered here by main.js -->
+          </div>
+        </div>
+        <div id="active-calculator" class="active-calculator-view hidden">
+          <button id="back-to-list" class="back-btn"><i data-lucide="arrow-left"></i> 목록으로</button>
+          <div id="calculator-container"></div>
+        </div>
+      </main>
+    </div>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="#">이용약관</a>
+        <a href="#">개인정보처리방침</a>
+        <a href="#">문의하기</a>
+      </div>
+      <p>&copy; 2024 다재다능 계산기 Hub. 모든 권리 보유.</p>
+    </footer>
+  </div>
+  <script defer type="module" src="/main.js"></script>
 </body>
 </html>
