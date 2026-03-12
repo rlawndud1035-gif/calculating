@@ -31,17 +31,14 @@
 <body>
   <div id="app">
     <header class="header">
-      <div class="logo-container">
-        <h1 class="logo">다재다능 계산기 Hub</h1>
+      <div class="logo-container" id="logo">
+        <div class="logo-wrapper">
+          <i data-lucide="calculator" class="logo-icon"></i>
+          <h1 class="logo-text">다재다능 계산기 Hub</h1>
+        </div>
       </div>
       <div class="search-container">
         <input type="text" id="search-input" placeholder="계산기를 검색해 보세요 (예: 연봉, 대출, 시급...)" />
-      </div>
-      <div class="auth-container" id="auth-container">
-        <button id="btn-login" class="btn-login">
-          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google icon">
-          <span>Google로 로그인</span>
-        </button>
       </div>
     </header>
 
@@ -86,10 +83,6 @@
     </footer>
   </div>
 
-  <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
-  
   <script defer type="module" src="/main.js"></script>
 </body>
 </html>

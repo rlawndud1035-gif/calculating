@@ -1,62 +1,3 @@
-// Firebase Configuration (Replace with your actual config)
-const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
-};
-
-// Initialize Firebase
-if (typeof firebase !== 'undefined') {
-  firebase.initializeApp(firebaseConfig);
-  const auth = firebase.auth();
-  const provider = new firebase.auth.GoogleAuthProvider();
-
-  // Auth DOM Elements
-  const authContainer = document.getElementById('auth-container');
-  const btnLogin = document.getElementById('btn-login');
-
-  // Login Function
-  if (btnLogin) {
-    btnLogin.addEventListener('click', () => {
-      auth.signInWithPopup(provider).catch(error => {
-        console.error("Login failed:", error);
-      });
-    });
-  }
-
-  // Update Auth UI
-  auth.onAuthStateChanged(user => {
-    if (user) {
-      authContainer.innerHTML = `
-        <div class="user-profile">
-          <img src="${user.photoURL}" alt="${user.displayName}" class="user-avatar">
-          <span class="user-name">${user.displayName}</span>
-          <button id="btn-logout" class="btn-logout">로그아웃</button>
-        </div>
-      `;
-      document.getElementById('btn-logout').addEventListener('click', () => {
-        auth.signOut();
-      });
-    } else {
-      authContainer.innerHTML = `
-        <button id="btn-login" class="btn-login">
-          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google icon">
-          <span>Google로 로그인</span>
-        </button>
-      `;
-      const newLoginBtn = document.getElementById('btn-login');
-      if (newLoginBtn) {
-        newLoginBtn.addEventListener('click', () => {
-          auth.signInWithPopup(provider);
-        });
-      }
-    }
-  });
-}
-
 // Calculator Registry
 const calculators = [
   {
@@ -384,6 +325,7 @@ let currentCategory = 'all';
 let searchQuery = '';
 
 // DOM Elements
+const logo = document.getElementById('logo');
 const grid = document.getElementById('calculator-grid');
 const gridContainer = document.getElementById('calculator-grid-container');
 const activeView = document.getElementById('active-calculator');
@@ -434,6 +376,24 @@ function showCalculator(calc) {
   window.scrollTo(0, 0);
 }
 
+// Reset View (Home)
+function resetView() {
+  activeView.classList.add('hidden');
+  gridContainer.classList.remove('hidden');
+  currentCategory = 'all';
+  searchQuery = '';
+  searchInput.value = '';
+  categoryItems.forEach(i => {
+    i.classList.remove('active');
+    if(i.dataset.category === 'all') i.classList.add('active');
+  });
+  renderGrid();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Logo Click
+logo.addEventListener('click', resetView);
+
 // Back to list
 backBtn.addEventListener('click', () => {
   activeView.classList.add('hidden');
@@ -450,17 +410,14 @@ searchInput.addEventListener('input', (e) => {
 // Category Filter
 categoryItems.forEach(item => {
   item.addEventListener('click', () => {
-    // 1. Close active calculator view if open
     activeView.classList.add('hidden');
     gridContainer.classList.remove('hidden');
 
-    // 2. Update active category and filter
     categoryItems.forEach(i => i.classList.remove('active'));
     item.classList.add('active');
     currentCategory = item.dataset.category;
     renderGrid();
 
-    // 3. Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
