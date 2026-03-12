@@ -59,7 +59,7 @@ if (typeof firebase !== 'undefined') {
 
 // Calculator Registry
 const calculators = [
-...
+  {
     id: 'stock-dividend',
     title: '주식 배당금 계산기',
     description: '배당금 수익과 세금(15.4%)을 제외한 실수령액을 계산합니다.',
@@ -115,7 +115,7 @@ const calculators = [
         <p>각종 공제액을 제외한 실제 통장에 찍히는 금액을 확인하세요.</p>
       </div>
       <div class="calc-guide">
-        <strong>도움말:</strong> 국민연금(4.5%), 건강보험(3.545%), 고용보험(0.9%) 등이 반영된 추정치입니다. 실제 금액은 부양가족 수 및 비과세 항목에 따라 차이가 발생할 수 있습니다.
+        <strong>도움말:</strong> 국민연금(4.75%), 건강보험(3.595%), 고용보험(0.9%) 등이 반영된 2026년 기준 추정치입니다.
       </div>
       <div class="input-group">
         <label>연봉 (만원)</label>
@@ -134,9 +134,9 @@ const calculators = [
         const nonTaxable = parseFloat(document.getElementById('non-taxable').value) || 0;
         const monthlyBase = (annual / 12) - nonTaxable;
         
-        const nationalPension = Math.min(monthlyBase * 0.045, 265500); 
-        const healthInsurance = monthlyBase * 0.03545;
-        const longTermCare = healthInsurance * 0.1281;
+        const nationalPension = Math.min(monthlyBase * 0.0475, 302575); 
+        const healthInsurance = monthlyBase * 0.03595;
+        const longTermCare = healthInsurance * 0.1314;
         const employmentInsurance = monthlyBase * 0.009;
         const incomeTax = monthlyBase * 0.035; 
         const localIncomeTax = incomeTax * 0.1;
@@ -167,11 +167,11 @@ const calculators = [
         <p>주휴수당을 포함한 정확한 급여 변환을 도와드립니다.</p>
       </div>
       <div class="calc-guide">
-        <strong>근로기준법 기준:</strong> 주 40시간 근무 시 유급 주휴시간을 포함하여 한 달 평균 209시간을 기준으로 계산합니다. (2024년 최저임금: 9,860원)
+        <strong>근로기준법 기준:</strong> 주 40시간 근무 시 유급 주휴시간을 포함하여 한 달 평균 209시간을 기준으로 계산합니다. (2026년 최저임금: 10,320원)
       </div>
       <div class="input-group">
         <label>시급 (원)</label>
-        <input type="number" id="hourly-wage" placeholder="예: 9860">
+        <input type="number" id="hourly-wage" placeholder="예: 10320">
       </div>
       <div class="input-group">
         <label>월 근무 시간 (시간, 기본 209)</label>
@@ -269,7 +269,7 @@ const calculators = [
       </div>
       <div class="input-group">
         <label>연료 가격 (원/L)</label>
-        <input type="number" id="fuel-price" value="1650">
+        <input type="number" id="fuel-price" value="1700">
       </div>
       <button class="btn-calculate" id="calc-fuel">계산하기</button>
       <div id="result" class="result-area hidden"></div>
