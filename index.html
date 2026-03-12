@@ -16,15 +16,9 @@
   <meta property="og:description" content="연봉, 배당금, 대출 등 2026년 최신 데이터가 반영된 스마트한 계산기 서비스를 만나보세요.">
   <meta property="og:image" content="https://calculating-hub.web.app/og-image.png">
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://calculating-hub.web.app/">
-  <meta property="twitter:title" content="다재다능 계산기 Hub - 2026년 최신 계산기 모음">
-  <meta property="twitter:description" content="연봉, 배당금, 대출 등 2026년 최신 데이터가 반영된 스마트한 계산기 서비스를 만나보세요.">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
   <link href='/style.css' rel='stylesheet'>
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -33,12 +27,17 @@
     <header class="header">
       <div class="logo-container" id="logo">
         <div class="logo-wrapper">
-          <i data-lucide="calculator" class="logo-icon"></i>
+          <div class="logo-icon-bg">
+            <i data-lucide="calculator" class="logo-icon"></i>
+          </div>
           <h1 class="logo-text">다재다능 계산기 Hub</h1>
         </div>
       </div>
       <div class="search-container">
-        <input type="text" id="search-input" placeholder="계산기를 검색해 보세요 (예: 연봉, 대출, 시급...)" />
+        <div class="search-wrapper">
+          <i data-lucide="search" class="search-icon"></i>
+          <input type="text" id="search-input" placeholder="어떤 계산이 필요하신가요?" />
+        </div>
       </div>
     </header>
 
@@ -46,12 +45,12 @@
       <aside class="sidebar">
         <nav>
           <ul class="category-list">
-            <li class="category-item active" data-category="all">전체</li>
-            <li class="category-item" data-category="finance">금융/투자</li>
-            <li class="category-item" data-category="tax">세금/연봉</li>
-            <li class="category-item" data-category="business">업무/비즈니스</li>
-            <li class="category-item" data-category="life">생활/일반</li>
-            <li class="category-item" data-category="health">건강</li>
+            <li class="category-item active" data-category="all"><i data-lucide="layout-grid"></i><span>전체</span></li>
+            <li class="category-item" data-category="finance"><i data-lucide="trending-up"></i><span>금융/투자</span></li>
+            <li class="category-item" data-category="tax"><i data-lucide="banknote"></i><span>세금/연봉</span></li>
+            <li class="category-item" data-category="business"><i data-lucide="briefcase"></i><span>업무/비즈니스</span></li>
+            <li class="category-item" data-category="life"><i data-lucide="smile"></i><span>생활/일반</span></li>
+            <li class="category-item" data-category="health"><i data-lucide="heart-pulse"></i><span>건강</span></li>
           </ul>
         </nav>
       </aside>
@@ -59,8 +58,8 @@
       <main class="content-area">
         <div id="calculator-grid-container">
           <section class="hero-section">
-            <h2>필요한 모든 계산을 한 번에 💡</h2>
-            <p>금융, 세금, 업무, 일상생활까지 스마트하게 계산해 보세요.</p>
+            <h2>스마트한 계산의 시작 💡</h2>
+            <p>2026년 최신 데이터가 반영된 <strong>다재다능 계산기 Hub</strong>에서 쉽고 정확하게 계산해 보세요.</p>
           </section>
           <div id="calculator-grid" class="calculator-grid">
             <!-- Calculator cards will be rendered here by main.js -->
@@ -74,12 +73,15 @@
     </div>
 
     <footer class="footer">
-      <div class="footer-links">
-        <a href="#">이용약관</a>
-        <a href="#">개인정보처리방침</a>
-        <a href="#">문의하기</a>
+      <div class="footer-content">
+        <div class="footer-brand">다재다능 계산기 Hub</div>
+        <div class="footer-links">
+          <a href="#">이용약관</a>
+          <a href="#">개인정보처리방침</a>
+          <a href="#">문의하기</a>
+        </div>
+        <p class="copyright">&copy; 2026 다재다능 계산기 Hub. All Rights Reserved.</p>
       </div>
-      <p>&copy; 2026 다재다능 계산기 Hub. 모든 권리 보유.</p>
     </footer>
   </div>
 
