@@ -1,9 +1,68 @@
+// Firebase Configuration (Replace with your actual config)
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+// Initialize Firebase
+if (typeof firebase !== 'undefined') {
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  // Auth DOM Elements
+  const authContainer = document.getElementById('auth-container');
+  const btnLogin = document.getElementById('btn-login');
+
+  // Login Function
+  if (btnLogin) {
+    btnLogin.addEventListener('click', () => {
+      auth.signInWithPopup(provider).catch(error => {
+        console.error("Login failed:", error);
+      });
+    });
+  }
+
+  // Update Auth UI
+  auth.onAuthStateChanged(user => {
+    if (user) {
+      authContainer.innerHTML = `
+        <div class="user-profile">
+          <img src="${user.photoURL}" alt="${user.displayName}" class="user-avatar">
+          <span class="user-name">${user.displayName}</span>
+          <button id="btn-logout" class="btn-logout">로그아웃</button>
+        </div>
+      `;
+      document.getElementById('btn-logout').addEventListener('click', () => {
+        auth.signOut();
+      });
+    } else {
+      authContainer.innerHTML = `
+        <button id="btn-login" class="btn-login">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google icon">
+          <span>Google로 로그인</span>
+        </button>
+      `;
+      const newLoginBtn = document.getElementById('btn-login');
+      if (newLoginBtn) {
+        newLoginBtn.addEventListener('click', () => {
+          auth.signInWithPopup(provider);
+        });
+      }
+    }
+  });
+}
+
 // Calculator Registry
 const calculators = [
   {
     id: 'stock-dividend',
     title: '주식 배당금 계산기',
-    description: '배당 수익과 세금을 제외한 실수령액을 즉시 계산합니다.',
+    description: '배당금 수익과 세금(15.4%)을 제외한 실수령액을 계산합니다.',
     category: 'finance',
     icon: 'trending-up',
     render: () => `
@@ -14,15 +73,13 @@ const calculators = [
       <div class="calc-guide">
         <strong>도움말:</strong> 한국의 배당소득세율은 15.4%(지방소득세 포함)입니다. 연간 금융소득이 2,000만원을 초과할 경우 금융소득종합과세 대상이 될 수 있습니다.
       </div>
-      <div class="input-grid">
-        <div class="input-group">
-          <label>총 보유 주식 수 (주)</label>
-          <input type="number" id="shares" placeholder="예: 100" min="0">
-        </div>
-        <div class="input-group">
-          <label>주당 배당금 (원)</label>
-          <input type="number" id="dividend-per-share" placeholder="예: 2500" min="0">
-        </div>
+      <div class="input-group">
+        <label>총 보유 주식 수 (주)</label>
+        <input type="number" id="shares" placeholder="예: 100">
+      </div>
+      <div class="input-group">
+        <label>주당 배당금 (원)</label>
+        <input type="number" id="dividend-per-share" placeholder="예: 2500">
       </div>
       <button class="btn-calculate" id="calc-dividend">계산하기</button>
       <div id="result" class="result-area hidden"></div>
@@ -37,13 +94,10 @@ const calculators = [
         
         const resultDiv = document.getElementById('result');
         resultDiv.innerHTML = `
-          <h4>분석 결과</h4>
+          <h4>계산 결과</h4>
           <div class="result-item"><span class="result-label">세전 총 배당금</span><span class="result-value">${total.toLocaleString()}원</span></div>
-          <div class="result-item"><span class="result-label">배당소득세 (15.4%)</span><span class="result-value" style="color: #ef4444;">-${Math.floor(tax).toLocaleString()}원</span></div>
-          <div class="result-item" style="border-top: 2px solid #bae6fd; margin-top: 1rem; padding-top: 1.5rem;">
-            <span class="result-label" style="font-weight: 700; color: #0369a1;">예상 실수령액</span>
-            <span class="result-value" style="font-size: 1.75rem; color: #2563eb;">${Math.floor(net).toLocaleString()}원</span>
-          </div>
+          <div class="result-item"><span class="result-label">배당소득세 (15.4%)</span><span class="result-value">${Math.floor(tax).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">실수령액</span><span class="result-value" style="color: #2563eb;">${Math.floor(net).toLocaleString()}원</span></div>
         `;
         resultDiv.classList.remove('hidden');
       });
@@ -54,24 +108,22 @@ const calculators = [
     title: '연봉/실수령액 계산기',
     description: '4대 보험과 세금을 제외한 실제 월 수령액을 정교하게 계산합니다.',
     category: 'tax',
-    icon: 'banknote',
+    icon: 'wallet',
     render: () => `
       <div class="calc-header">
         <h2>연봉/실수령액 계산기</h2>
         <p>각종 공제액을 제외한 실제 통장에 찍히는 금액을 확인하세요.</p>
       </div>
       <div class="calc-guide">
-        <strong>2026년 기준:</strong> 국민연금(4.75%), 건강보험(3.595%), 고용보험(0.9%) 등이 반영된 추정치입니다.
+        <strong>도움말:</strong> 국민연금(4.75%), 건강보험(3.595%), 고용보험(0.9%) 등이 반영된 2026년 기준 추정치입니다.
       </div>
-      <div class="input-grid">
-        <div class="input-group">
-          <label>연봉 (만원)</label>
-          <input type="number" id="annual-salary" placeholder="예: 4500" min="0">
-        </div>
-        <div class="input-group">
-          <label>비과세액 (원/월)</label>
-          <input type="number" id="non-taxable" value="200000" min="0">
-        </div>
+      <div class="input-group">
+        <label>연봉 (만원)</label>
+        <input type="number" id="annual-salary" placeholder="예: 4500">
+      </div>
+      <div class="input-group">
+        <label>비과세액 (원/월)</label>
+        <input type="number" id="non-taxable" value="200000">
       </div>
       <button class="btn-calculate" id="calc-salary">계산하기</button>
       <div id="result" class="result-area hidden"></div>
@@ -94,13 +146,10 @@ const calculators = [
 
         const resultDiv = document.getElementById('result');
         resultDiv.innerHTML = `
-          <h4>상세 공제 내역</h4>
-          <div class="result-item"><span class="result-label">월 급여(세전)</span><span class="result-value" style="font-size: 1.1rem; color: #1e293b;">${Math.floor(annual/12).toLocaleString()}원</span></div>
-          <div class="result-item"><span class="result-label">공제액 합계</span><span class="result-value" style="color: #ef4444;">-${Math.floor(totalDeductions).toLocaleString()}원</span></div>
-          <div class="result-item" style="border-top: 2px solid #bae6fd; margin-top: 1rem; padding-top: 1.5rem;">
-            <span class="result-label" style="font-weight: 700; color: #0369a1;">월 예상 실수령액</span>
-            <span class="result-value" style="font-size: 1.75rem; color: #10b981;">${Math.floor(monthlyNet).toLocaleString()}원</span>
-          </div>
+          <h4>월 실수령액 상세</h4>
+          <div class="result-item"><span class="result-label">월 급여(세전)</span><span class="result-value">${Math.floor(annual/12).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">공제액 합계</span><span class="result-value">-${Math.floor(totalDeductions).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">월 실수령액</span><span class="result-value" style="color: #10b981;">${Math.floor(monthlyNet).toLocaleString()}원</span></div>
         `;
         resultDiv.classList.remove('hidden');
       });
@@ -109,7 +158,7 @@ const calculators = [
   {
     id: 'hourly-to-monthly',
     title: '시급 ↔ 월급 변환기',
-    description: '근로기준법에 따른 주휴수당 포함 급여를 변환합니다.',
+    description: '시급을 월급으로, 월급을 시급으로 근로기준법 기준으로 변환합니다.',
     category: 'business',
     icon: 'clock',
     render: () => `
@@ -118,17 +167,15 @@ const calculators = [
         <p>주휴수당을 포함한 정확한 급여 변환을 도와드립니다.</p>
       </div>
       <div class="calc-guide">
-        <strong>2026년 최저임금:</strong> 10,320원 (주 40시간 근무 시 유급 주휴시간 포함 월 209시간 기준)
+        <strong>근로기준법 기준:</strong> 주 40시간 근무 시 유급 주휴시간을 포함하여 한 달 평균 209시간을 기준으로 계산합니다. (2026년 최저임금: 10,320원)
       </div>
-      <div class="input-grid">
-        <div class="input-group">
-          <label>시급 (원)</label>
-          <input type="number" id="hourly-wage" placeholder="예: 10320" min="0">
-        </div>
-        <div class="input-group">
-          <label>월 근무 시간 (기본 209)</label>
-          <input type="number" id="working-hours" value="209" min="0">
-        </div>
+      <div class="input-group">
+        <label>시급 (원)</label>
+        <input type="number" id="hourly-wage" placeholder="예: 10320">
+      </div>
+      <div class="input-group">
+        <label>월 근무 시간 (시간, 기본 209)</label>
+        <input type="number" id="working-hours" value="209">
       </div>
       <button class="btn-calculate" id="calc-wage-monthly">월급으로 변환</button>
       <div id="result" class="result-area hidden"></div>
@@ -141,9 +188,190 @@ const calculators = [
 
         const resultDiv = document.getElementById('result');
         resultDiv.innerHTML = `
-          <h4>급여 변환 결과</h4>
-          <div class="result-item"><span class="result-label">예상 월급 (세전)</span><span class="result-value" style="font-size: 1.75rem;">${Math.floor(monthly).toLocaleString()}원</span></div>
-          <p style="font-size: 0.85rem; color: #64748b; margin-top: 1rem; text-align: center;">* 입력하신 ${hours}시간을 기준으로 계산되었습니다.</p>
+          <h4>변환 결과</h4>
+          <div class="result-item"><span class="result-label">예상 월급 (세전)</span><span class="result-value">${Math.floor(monthly).toLocaleString()}원</span></div>
+          <p style="font-size: 0.8rem; color: #64748b; margin-top: 1rem;">* 주휴수당이 포함된 월 209시간 기준입니다.</p>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    }
+  },
+  {
+    id: 'mortgage-calc',
+    title: '대출 이자/상환 계산기',
+    description: '원리금 균등 상환 방식으로 대출 이자와 월 상환액을 계산합니다.',
+    category: 'finance',
+    icon: 'home',
+    render: () => `
+      <div class="calc-header">
+        <h2>대출 이자/상환 계산기</h2>
+        <p>대출금액과 금리에 따른 월 상환 부담액을 확인하세요.</p>
+      </div>
+      <div class="calc-guide">
+        <strong>원리금균등상환:</strong> 매달 원금과 이자의 합계액을 일정하게 상환하는 방식입니다.
+      </div>
+      <div class="input-group">
+        <label>대출 금액 (원)</label>
+        <input type="number" id="loan-amount" placeholder="예: 100000000">
+      </div>
+      <div class="input-group">
+        <label>연 이자율 (%)</label>
+        <input type="number" id="loan-rate" placeholder="예: 4.5">
+      </div>
+      <div class="input-group">
+        <label>대출 기간 (개월)</label>
+        <input type="number" id="loan-months" placeholder="예: 24">
+      </div>
+      <button class="btn-calculate" id="calc-loan">계산하기</button>
+      <div id="result" class="result-area hidden"></div>
+    `,
+    init: () => {
+      document.getElementById('calc-loan').addEventListener('click', () => {
+        const principal = parseFloat(document.getElementById('loan-amount').value) || 0;
+        const annualRate = parseFloat(document.getElementById('loan-rate').value) || 0;
+        const months = parseFloat(document.getElementById('loan-months').value) || 1;
+        
+        const monthlyRate = annualRate / 100 / 12;
+        const x = Math.pow(1 + monthlyRate, months);
+        const monthlyPayment = (principal * x * monthlyRate) / (x - 1);
+        const totalPayment = monthlyPayment * months;
+        const totalInterest = totalPayment - principal;
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>상환 상세</h4>
+          <div class="result-item"><span class="result-label">월 상환액</span><span class="result-value">${Math.floor(monthlyPayment).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">총 이자액</span><span class="result-value">${Math.floor(totalInterest).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">총 상환금액</span><span class="result-value">${Math.floor(totalPayment).toLocaleString()}원</span></div>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    }
+  },
+  {
+    id: 'fuel-cost-calc',
+    title: '유류비 계산기',
+    description: '주행 거리와 연비를 바탕으로 예상 유류비를 계산합니다.',
+    category: 'life',
+    icon: 'fuel',
+    render: () => `
+      <div class="calc-header">
+        <h2>유류비 계산기</h2>
+        <p>이동 거리에 따른 유류비를 미리 계산하여 여행 계획을 세워보세요.</p>
+      </div>
+      <div class="input-group">
+        <label>주행 거리 (km)</label>
+        <input type="number" id="distance" placeholder="예: 100">
+      </div>
+      <div class="input-group">
+        <label>차량 연비 (km/L)</label>
+        <input type="number" id="efficiency" placeholder="예: 12.5">
+      </div>
+      <div class="input-group">
+        <label>연료 가격 (원/L)</label>
+        <input type="number" id="fuel-price" value="1700">
+      </div>
+      <button class="btn-calculate" id="calc-fuel">계산하기</button>
+      <div id="result" class="result-area hidden"></div>
+    `,
+    init: () => {
+      document.getElementById('calc-fuel').addEventListener('click', () => {
+        const dist = parseFloat(document.getElementById('distance').value) || 0;
+        const eff = parseFloat(document.getElementById('efficiency').value) || 1;
+        const price = parseFloat(document.getElementById('fuel-price').value) || 0;
+        
+        const cost = (dist / eff) * price;
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>유류비 결과</h4>
+          <div class="result-item"><span class="result-label">필요 연료량</span><span class="result-value">${(dist/eff).toFixed(2)} L</span></div>
+          <div class="result-item"><span class="result-label">예상 유류비</span><span class="result-value">${Math.floor(cost).toLocaleString()}원</span></div>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    }
+  },
+  {
+    id: 'percent-calc',
+    title: '퍼센트/증감율 계산기',
+    description: '비즈니스 보고서에 필수적인 증감율 및 퍼센트 계산을 지원합니다.',
+    category: 'business',
+    icon: 'percent',
+    render: () => `
+      <div class="calc-header">
+        <h2>퍼센트/증감율 계산기</h2>
+      </div>
+      <div class="input-group">
+        <label>기준 값 (A)</label>
+        <input type="number" id="base-val" placeholder="기존 값">
+      </div>
+      <div class="input-group">
+        <label>변경 값 (B)</label>
+        <input type="number" id="change-val" placeholder="현재 값">
+      </div>
+      <button class="btn-calculate" id="calc-percent">증감율 확인</button>
+      <div id="result" class="result-area hidden"></div>
+    `,
+    init: () => {
+      document.getElementById('calc-percent').addEventListener('click', () => {
+        const a = parseFloat(document.getElementById('base-val').value) || 0;
+        const b = parseFloat(document.getElementById('change-val').value) || 0;
+        if(a === 0) return;
+        
+        const rate = ((b - a) / a) * 100;
+        const sign = rate >= 0 ? '+' : '';
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>변동 결과</h4>
+          <div class="result-item"><span class="result-label">차이</span><span class="result-value">${(b-a).toLocaleString()}</span></div>
+          <div class="result-item"><span class="result-label">증감율</span><span class="result-value" style="color: ${rate >= 0 ? '#ef4444' : '#3b82f6'};">${sign}${rate.toFixed(2)}%</span></div>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    }
+  },
+  {
+    id: 'bmi-calc',
+    title: 'BMI 비만도 계산기',
+    description: '키와 몸무게를 통해 건강 상태를 체크합니다.',
+    category: 'health',
+    icon: 'activity',
+    render: () => `
+      <div class="calc-header">
+        <h2>BMI 비만도 계산기</h2>
+      </div>
+      <div class="input-group">
+        <label>키 (cm)</label>
+        <input type="number" id="height" placeholder="예: 175">
+      </div>
+      <div class="input-group">
+        <label>몸무게 (kg)</label>
+        <input type="number" id="weight" placeholder="예: 70">
+      </div>
+      <button class="btn-calculate" id="calc-bmi">계산하기</button>
+      <div id="result" class="result-area hidden"></div>
+    `,
+    init: () => {
+      document.getElementById('calc-bmi').addEventListener('click', () => {
+        const h = parseFloat(document.getElementById('height').value) / 100;
+        const w = parseFloat(document.getElementById('weight').value);
+        if(!h || !w) return;
+        
+        const bmi = w / (h * h);
+        let status = '';
+        let color = '';
+        if(bmi < 18.5) { status = '저체중'; color = '#3b82f6'; }
+        else if(bmi < 23) { status = '정상'; color = '#10b981'; }
+        else if(bmi < 25) { status = '과체중'; color = '#f59e0b'; }
+        else { status = '비만'; color = '#ef4444'; }
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>건강 진단 결과</h4>
+          <div class="result-item"><span class="result-label">나의 BMI</span><span class="result-value">${bmi.toFixed(2)}</span></div>
+          <div class="result-item"><span class="result-label">상태</span><span class="result-value" style="color: ${color};">${status}</span></div>
         `;
         resultDiv.classList.remove('hidden');
       });
@@ -156,7 +384,6 @@ let currentCategory = 'all';
 let searchQuery = '';
 
 // DOM Elements
-const logo = document.getElementById('logo');
 const grid = document.getElementById('calculator-grid');
 const gridContainer = document.getElementById('calculator-grid-container');
 const activeView = document.getElementById('active-calculator');
@@ -189,6 +416,7 @@ function renderGrid() {
     grid.appendChild(card);
   });
   
+  // Refresh Lucide icons
   if (window.lucide) {
     window.lucide.createIcons();
   }
@@ -203,45 +431,36 @@ function showCalculator(calc) {
   if (window.lucide) {
     window.lucide.createIcons();
   }
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo(0, 0);
 }
 
-// Reset View (Home)
-function resetView() {
-  activeView.classList.add('hidden');
-  gridContainer.classList.remove('hidden');
-  currentCategory = 'all';
-  searchQuery = '';
-  searchInput.value = '';
-  categoryItems.forEach(i => {
-    i.classList.remove('active');
-    if(i.dataset.category === 'all') i.classList.add('active');
-  });
-  renderGrid();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-logo.addEventListener('click', resetView);
-
+// Back to list
 backBtn.addEventListener('click', () => {
   activeView.classList.add('hidden');
   gridContainer.classList.remove('hidden');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo(0, 0);
 });
 
+// Search
 searchInput.addEventListener('input', (e) => {
   searchQuery = e.target.value;
   renderGrid();
 });
 
+// Category Filter
 categoryItems.forEach(item => {
   item.addEventListener('click', () => {
+    // 1. Close active calculator view if open
     activeView.classList.add('hidden');
     gridContainer.classList.remove('hidden');
+
+    // 2. Update active category and filter
     categoryItems.forEach(i => i.classList.remove('active'));
     item.classList.add('active');
     currentCategory = item.dataset.category;
     renderGrid();
+
+    // 3. Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
