@@ -1,6 +1,333 @@
 // Calculator Registry
 const calculators = [
   {
+    id: 'standard-calc',
+    title: '표준 계산기',
+    description: '사칙연산(+, -, *, /)을 지원하는 기본 사무용 계산기입니다.',
+    category: 'business',
+    icon: 'calculator',
+    render: () => `
+      <div class="calc-header">
+        <h2>표준 계산기</h2>
+      </div>
+      <div class="standard-calc-ui">
+        <input type="text" id="calc-display" readonly value="0">
+        <div class="calc-buttons">
+          <button class="btn-op" data-val="C">C</button>
+          <button class="btn-op" data-val="back">←</button>
+          <button class="btn-op" data-val="/">/</button>
+          <button class="btn-op" data-val="*">*</button>
+          <button data-val="7">7</button>
+          <button data-val="8">8</button>
+          <button data-val="9">9</button>
+          <button class="btn-op" data-val="-">-</button>
+          <button data-val="4">4</button>
+          <button data-val="5">5</button>
+          <button data-val="6">6</button>
+          <button class="btn-op" data-val="+">+</button>
+          <button data-val="1">1</button>
+          <button data-val="2">2</button>
+          <button data-val="3">3</button>
+          <button class="btn-equal" id="calc-equal">=</button>
+          <button data-val="0" style="grid-column: span 2;">0</button>
+          <button data-val=".">.</button>
+        </div>
+      </div>
+    `,
+    init: () => {
+      const display = document.getElementById('calc-display');
+      const buttons = document.querySelectorAll('.calc-buttons button');
+      let currentInput = '0';
+      
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const val = btn.dataset.val;
+          if (val === 'C') {
+            currentInput = '0';
+          } else if (val === 'back') {
+            currentInput = currentInput.length > 1 ? currentInput.slice(0, -1) : '0';
+          } else if (val === '=') {
+            try {
+              currentInput = eval(currentInput).toString();
+            } catch {
+              currentInput = 'Error';
+            }
+          } else {
+            if (currentInput === '0' && !isNaN(val)) {
+              currentInput = val;
+            } else {
+              currentInput += val;
+            }
+          }
+          display.value = currentInput;
+        });
+      });
+    }
+  },
+  {
+    id: 'vat-calc',
+    title: '부가세 계산기',
+    description: '공급가액 또는 합계금액을 기준으로 부가세(10%)를 계산합니다.',
+    category: 'business',
+    icon: 'percent',
+    render: () => `
+      <div class="calc-header">
+        <h2>부가세 계산기</h2>
+      </div>
+      <div class="input-group">
+        <label>기준 금액 (원)</label>
+        <input type="number" id="vat-amount" placeholder="금액 입력">
+      </div>
+      <div class="input-group">
+        <label>계산 방식</label>
+        <select id="vat-type">
+          <option value="supply">공급가액 기준 (세금 별도)</option>
+          <option value="total">합계금액 기준 (세금 포함)</option>
+        </select>
+      </div>
+      <button class="btn-calculate" id="calc-vat">계산하기</button>
+      <div id="result" class="result-area hidden"></div>
+    `,
+    init: () => {
+      document.getElementById('calc-vat').addEventListener('click', () => {
+        const amount = parseFloat(document.getElementById('vat-amount').value) || 0;
+        const type = document.getElementById('vat-type').value;
+        let supply, vat, total;
+
+        if (type === 'supply') {
+          supply = amount;
+          vat = amount * 0.1;
+          total = supply + vat;
+        } else {
+          total = amount;
+          supply = amount / 1.1;
+          vat = total - supply;
+        }
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>부가세 계산 결과</h4>
+          <div class="result-item"><span class="result-label">공급가액</span><span class="result-value">${Math.floor(supply).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">부가세 (10%)</span><span class="result-value">${Math.floor(vat).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">합계금액</span><span class="result-value" style="color: #2563eb;">${Math.floor(total).toLocaleString()}원</span></div>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    }
+  },
+  {
+    id: 'pyeong-calc',
+    title: '평수 ↔ 제곱미터 변환기',
+    description: '아파트 평수와 제곱미터(㎡)를 상호 변환합니다.',
+    category: 'finance',
+    icon: 'home',
+    render: () => `
+      <div class="calc-header">
+        <h2>평수 ↔ 제곱미터 변환기</h2>
+      </div>
+      <div class="input-group">
+        <label>평수 (평)</label>
+        <input type="number" id="val-pyeong" placeholder="예: 34">
+      </div>
+      <div class="input-group">
+        <label>제곱미터 (㎡)</label>
+        <input type="number" id="val-m2" placeholder="예: 112">
+      </div>
+      <div class="calc-guide">
+        <strong>정보:</strong> 1평 = 3.305785㎡ / 1㎡ = 0.3025평
+      </div>
+    `,
+    init: () => {
+      const pInput = document.getElementById('val-pyeong');
+      const mInput = document.getElementById('val-m2');
+      
+      pInput.addEventListener('input', () => {
+        const val = parseFloat(pInput.value) || 0;
+        mInput.value = (val * 3.305785).toFixed(2);
+      });
+      
+      mInput.addEventListener('input', () => {
+        const val = parseFloat(mInput.value) || 0;
+        pInput.value = (val * 0.3025).toFixed(2);
+      });
+    }
+  },
+  {
+    id: 'savings-calc',
+    title: '예적금 이자 계산기',
+    description: '단리/복리 이자와 세후 실수령액을 계산합니다.',
+    category: 'finance',
+    icon: 'banknote',
+    render: () => `
+      <div class="calc-header">
+        <h2>예적금 이자 계산기</h2>
+      </div>
+      <div class="input-group">
+        <label>예치 금액 (원)</label>
+        <input type="number" id="save-principal" placeholder="예: 10000000">
+      </div>
+      <div class="input-group">
+        <label>연 이자율 (%)</label>
+        <input type="number" id="save-rate" placeholder="예: 4.0">
+      </div>
+      <div class="input-group">
+        <label>예치 기간 (개월)</label>
+        <input type="number" id="save-period" placeholder="예: 12">
+      </div>
+      <div class="input-group">
+        <label>이자 방식</label>
+        <select id="interest-type">
+          <option value="simple">단리</option>
+          <option value="compound">월 복리</option>
+        </select>
+      </div>
+      <button class="btn-calculate" id="calc-savings">이자 계산하기</button>
+      <div id="result" class="result-area hidden"></div>
+    `,
+    init: () => {
+      document.getElementById('calc-savings').addEventListener('click', () => {
+        const principal = parseFloat(document.getElementById('save-principal').value) || 0;
+        const rate = parseFloat(document.getElementById('save-rate').value) / 100 || 0;
+        const period = parseFloat(document.getElementById('save-period').value) || 0;
+        const type = document.getElementById('interest-type').value;
+
+        let interest = 0;
+        if (type === 'simple') {
+          interest = principal * rate * (period / 12);
+        } else {
+          interest = principal * (Math.pow(1 + rate / 12, period) - 1);
+        }
+
+        const tax = interest * 0.154; // 일반과세 15.4%
+        const net = principal + interest - tax;
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>만기 수령액 상세</h4>
+          <div class="result-item"><span class="result-label">세전 이자</span><span class="result-value">${Math.floor(interest).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">이자소득세 (15.4%)</span><span class="result-value">-${Math.floor(tax).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">만기 실수령액</span><span class="result-value" style="color: #10b981;">${Math.floor(net).toLocaleString()}원</span></div>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    }
+  },
+  {
+    id: 'split-bill-calc',
+    title: '더치페이/팁 계산기',
+    description: '식사 비용을 인원수대로 정확하게 나눕니다.',
+    category: 'life',
+    icon: 'users',
+    render: () => `
+      <div class="calc-header">
+        <h2>더치페이/팁 계산기</h2>
+      </div>
+      <div class="input-group">
+        <label>총 결제 금액 (원)</label>
+        <input type="number" id="total-bill" placeholder="예: 85000">
+      </div>
+      <div class="input-group">
+        <label>인원 수 (명)</label>
+        <input type="number" id="split-count" placeholder="예: 4">
+      </div>
+      <div class="input-group">
+        <label>추가 팁 (원, 옵션)</label>
+        <input type="number" id="tip-amount" value="0">
+      </div>
+      <button class="btn-calculate" id="calc-split">나누기</button>
+      <div id="result" class="result-area hidden"></div>
+    `,
+    init: () => {
+      document.getElementById('calc-split').addEventListener('click', () => {
+        const total = parseFloat(document.getElementById('total-bill').value) || 0;
+        const people = parseFloat(document.getElementById('split-count').value) || 1;
+        const tip = parseFloat(document.getElementById('tip-amount').value) || 0;
+        
+        const perPerson = (total + tip) / people;
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>더치페이 결과</h4>
+          <div class="result-item"><span class="result-label">총 합계액</span><span class="result-value">${(total + tip).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">1인당 금액</span><span class="result-value" style="color: #f59e0b;">${Math.ceil(perPerson / 10) * 10}원</span></div>
+          <p style="font-size: 0.8rem; color: #64748b; margin-top: 1rem;">* 10원 단위 절상(올림)된 금액입니다.</p>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    }
+  },
+  {
+    id: 'discount-calc',
+    title: '할인율 계산기',
+    description: '원가와 할인율을 기반으로 최종 가격을 계산합니다.',
+    category: 'life',
+    icon: 'shopping-tag',
+    render: () => `
+      <div class="calc-header">
+        <h2>할인율 계산기</h2>
+      </div>
+      <div class="input-group">
+        <label>정가 (원)</label>
+        <input type="number" id="original-price" placeholder="예: 50000">
+      </div>
+      <div class="input-group">
+        <label>할인율 (%)</label>
+        <input type="number" id="discount-rate" placeholder="예: 20">
+      </div>
+      <button class="btn-calculate" id="calc-discount">할인액 확인</button>
+      <div id="result" class="result-area hidden"></div>
+    `,
+    init: () => {
+      document.getElementById('calc-discount').addEventListener('click', () => {
+        const price = parseFloat(document.getElementById('original-price').value) || 0;
+        const rate = parseFloat(document.getElementById('discount-rate').value) || 0;
+        
+        const discountAmount = price * (rate / 100);
+        const finalPrice = price - discountAmount;
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>할인 정보</h4>
+          <div class="result-item"><span class="result-label">할인 금액</span><span class="result-value">-${discountAmount.toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">최종 결제액</span><span class="result-value" style="color: #ef4444;">${finalPrice.toLocaleString()}원</span></div>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    }
+  },
+  {
+    id: 'water-calc',
+    title: '하루 물 권장량 계산기',
+    description: '체격 조건에 맞는 일일 수분 섭취량을 계산합니다.',
+    category: 'health',
+    icon: 'droplets',
+    render: () => `
+      <div class="calc-header">
+        <h2>물 권장량 계산기</h2>
+      </div>
+      <div class="input-group">
+        <label>체중 (kg)</label>
+        <input type="number" id="water-weight" placeholder="예: 70">
+      </div>
+      <button class="btn-calculate" id="calc-water">권장량 확인</button>
+      <div id="result" class="result-area hidden"></div>
+    `,
+    init: () => {
+      document.getElementById('calc-water').addEventListener('click', () => {
+        const weight = parseFloat(document.getElementById('water-weight').value) || 0;
+        const amount = weight * 0.033; // 체중 1kg당 33ml
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>권장 섭취량</h4>
+          <div class="result-item"><span class="result-label">하루 권장량</span><span class="result-value" style="color: #3b82f6;">${amount.toFixed(2)} L</span></div>
+          <p style="font-size: 0.85rem; color: #64748b; margin-top: 1rem;">* 일반적인 성인 기준이며 활동량에 따라 다를 수 있습니다.</p>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    }
+  },
+  {
     id: 'stock-dividend',
     title: '주식 배당금 계산기',
     description: '배당금 수익과 세금(15.4%)을 제외한 실수령액을 계산합니다.',

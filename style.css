@@ -355,6 +355,59 @@ body {
   color: var(--primary-color);
 }
 
+/* Standard Calculator UI */
+.standard-calc-ui {
+  background: #f1f5f9;
+  padding: 1.5rem;
+  border-radius: 20px;
+}
+
+#calc-display {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 2rem;
+  text-align: right;
+  border: none;
+  background: white;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  font-family: 'Courier New', Courier, monospace;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.calc-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.8rem;
+}
+
+.calc-buttons button {
+  padding: 1.2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.calc-buttons button:hover {
+  background: #f8fafc;
+  transform: translateY(-2px);
+}
+
+.calc-buttons .btn-op {
+  background: #eff6ff;
+  color: var(--primary-color);
+}
+
+.calc-buttons .btn-equal {
+  background: var(--primary-color);
+  color: white;
+  grid-row: span 2;
+}
+
 @media (max-width: 900px) {
   .sidebar {
     width: 200px;
