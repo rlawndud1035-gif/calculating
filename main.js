@@ -450,10 +450,18 @@ searchInput.addEventListener('input', (e) => {
 // Category Filter
 categoryItems.forEach(item => {
   item.addEventListener('click', () => {
+    // 1. Close active calculator view if open
+    activeView.classList.add('hidden');
+    gridContainer.classList.remove('hidden');
+
+    // 2. Update active category and filter
     categoryItems.forEach(i => i.classList.remove('active'));
     item.classList.add('active');
     currentCategory = item.dataset.category;
     renderGrid();
+
+    // 3. Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 
