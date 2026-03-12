@@ -659,6 +659,7 @@ const calcContainer = document.getElementById('calculator-container');
 const backBtn = document.getElementById('back-to-list');
 const searchInput = document.getElementById('search-input');
 const categoryItems = document.querySelectorAll('.category-item');
+const logo = document.querySelector('.logo');
 
 // Render Grid
 function renderGrid() {
@@ -680,7 +681,11 @@ function renderGrid() {
       <h3>${calc.title}</h3>
       <p>${calc.description}</p>
     `;
-    card.addEventListener('click', () => showCalculator(calc));
+    card.addEventListener('click', () => {
+      showCalculator(calc);
+      // Update URL/History for back button
+      history.pushState({ view: 'calculator', id: calc.id }, '', `#${calc.id}`);
+    });
     grid.appendChild(card);
   });
   
@@ -702,11 +707,36 @@ function showCalculator(calc) {
   window.scrollTo(0, 0);
 }
 
-// Back to list
-backBtn.addEventListener('click', () => {
+// Back to list function
+function goBackToList() {
   activeView.classList.add('hidden');
   gridContainer.classList.remove('hidden');
   window.scrollTo(0, 0);
+  if (window.location.hash) {
+    history.pushState({ view: 'list' }, '', window.location.pathname);
+  }
+}
+
+// Logo click -> Home
+logo.style.cursor = 'pointer';
+logo.addEventListener('click', () => {
+  goBackToList();
+});
+
+// Back to list button
+backBtn.addEventListener('click', () => {
+  goBackToList();
+});
+
+// Browser back button handling
+window.addEventListener('popstate', (event) => {
+  if (event.state && event.state.view === 'calculator') {
+    const calc = calculators.find(c => c.id === event.state.id);
+    if (calc) showCalculator(calc);
+  } else {
+    activeView.classList.add('hidden');
+    gridContainer.classList.remove('hidden');
+  }
 });
 
 // Search
