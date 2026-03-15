@@ -1,6 +1,11 @@
 User-agent: *
 Allow: /
 
+# Googlebot specific rules
+User-agent: Googlebot
+Allow: /
+
+# Naver Yeti specific rules
 User-agent: Yeti
 Allow: /
 
