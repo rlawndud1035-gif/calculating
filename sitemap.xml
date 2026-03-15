@@ -1,25 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- 메인 페이지 -->
   <url>
     <loc>https://calculatin.pages.dev/</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-  <!-- 개별 계산기 상세 (네이버 수집용) -->
-  <url><loc>https://calculatin.pages.dev/#salary-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#mortgage-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#stock-dividend</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#hourly-to-monthly</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#vat-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#pyeong-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#savings-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#bmi-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#fuel-cost-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#percent-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#split-bill-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#discount-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#water-calc</loc><priority>0.8</priority></url>
-  <url><loc>https://calculatin.pages.dev/#standard-calc</loc><priority>0.8</priority></url>
 </urlset>

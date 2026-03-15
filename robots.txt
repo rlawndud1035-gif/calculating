@@ -1,12 +1,10 @@
+Sitemap: https://calculatin.pages.dev/sitemap.xml
+
 User-agent: *
 Allow: /
 
-# Googlebot specific rules
 User-agent: Googlebot
 Allow: /
 
-# Naver Yeti specific rules
 User-agent: Yeti
 Allow: /
-
-Sitemap: https://calculatin.pages.dev/sitemap.xml
