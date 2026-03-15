@@ -5,24 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="naver-site-verification" content="7d5a56b07e8d39caf5997f6d55d6be7f70e17181" />
   <meta name="google-site-verification" content="QqGmlF_U7HaZZsDEJltjP1_FLjt7DOMM816FEA4EpjQ" />
-  <title>계산기 - 2026년 최신 연봉, 배당금, 대출 통합 계산기 Hub</title>
-  <meta name="description" content="2026년 최신 최저임금과 세율이 반영된 통합 계산기 서비스입니다. 연봉 실수령액, 주식 배당금, 대출 이자, BMI, 유류비 등 모든 계산기를 한 곳에서 무료로 이용하세요.">
-  <meta name="keywords" content="계산기, 2026 연봉 계산기, 2026 실수령액, 주식 배당금 계산기, 대출 이자 계산기, 시급 월급 변환기, BMI 계산기, 유류비 계산기, 다재다능 계산기">
+  <title>다재다능 계산기 Hub - 2026년 최신 연봉, 배당금, 대출 통합 계산기</title>
+  <meta name="description" content="2026년 최신 세율이 반영된 통합 계산기 서비스. 연봉 실수령액, 주식 배당금, 대출 이자, BMI 등 10종 이상의 스마트한 계산기를 무료로 이용하세요.">
+  <meta name="keywords" content="계산기, 2026 연봉 계산기, 실수령액 계산기, 대출 이자 계산기, 배당금 계산기, 부가세 계산기, BMI 계산기, 유류비 계산기">
   <link rel="canonical" href="https://calculatin.pages.dev/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://calculatin.pages.dev/">
-  <meta property="og:title" content="계산기 - 2026년 최신 통합 계산기 모음">
-  <meta property="og:description" content="연봉, 배당금, 대출 등 2026년 최신 데이터가 반영된 스마트한 계산기 서비스를 만나보세요.">
+  <meta property="og:title" content="다재다능 계산기 Hub - 모든 계산을 한곳에서">
+  <meta property="og:description" content="연봉, 대출, 투자 등 일상의 모든 계산을 2026년 최신 기준으로 정확하게 확인하세요.">
   <meta property="og:image" content="https://calculatin.pages.dev/og-image.png">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://calculatin.pages.dev/">
-  <meta property="twitter:title" content="계산기 - 2026년 최신 통합 계산기 모음">
-  <meta property="twitter:description" content="연봉, 배당금, 대출 등 2026년 최신 데이터가 반영된 스마트한 계산기 서비스를 만나보세요.">
+  <meta property="twitter:title" content="다재다능 계산기 Hub - 통합 계산기 모음">
+  <meta property="twitter:description" content="스마트한 일상을 위한 필수 계산기 모음 서비스입니다.">
   
+  <!-- 구조화 데이터 (JSON-LD) 추가 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "다재다능 계산기 Hub",
+    "url": "https://calculatin.pages.dev/",
+    "description": "2026년 최신 연봉, 대출, 배당금 등 다양한 통합 계산기 서비스",
+    "applicationCategory": "BusinessApplication, FinanceApplication",
+    "operatingSystem": "All",
+    "browserRequirements": "Requires JavaScript",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "KRW"
+    }
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -33,18 +52,19 @@
   <div id="app">
     <header class="header">
       <div class="logo-container">
-        <h1 class="logo">다재다능 계산기 Hub</h1>
+        <a href="/" class="logo-link"><h1 class="logo">다재다능 계산기 Hub</h1></a>
       </div>
       <div class="search-container">
+        <label for="search-input" class="sr-only">계산기 검색</label>
         <input type="text" id="search-input" placeholder="계산기를 검색해 보세요 (예: 연봉, 대출, 시급...)" />
       </div>
     </header>
 
     <div class="main-layout">
       <aside class="sidebar">
-        <nav>
+        <nav aria-label="카테고리 메뉴">
           <ul class="category-list">
-            <li class="category-item active" data-category="all">전체</li>
+            <li class="category-item active" data-category="all">전체 계산기</li>
             <li class="category-item" data-category="finance">금융/투자</li>
             <li class="category-item" data-category="tax">세금/연봉</li>
             <li class="category-item" data-category="business">업무/비즈니스</li>
@@ -58,57 +78,62 @@
         <div id="calculator-grid-container">
           <section class="hero-section">
             <h2>필요한 모든 계산을 한 번에 💡</h2>
-            <p>금융, 세금, 업무, 일상생활까지 스마트하게 계산해 보세요.</p>
+            <p>2026년 최신 법정 기준이 반영된 스마트한 계산 도구 모음입니다.</p>
           </section>
+          
           <div id="calculator-grid" class="calculator-grid">
-            <!-- SEO용 정적 콘텐츠 (JS 로드 전 노출) -->
+            <!-- SEO용 정적 콘텐츠 (검색 엔진 수집용) -->
             <article class="calc-card-static">
-              <h3>연봉 계산기</h3>
-              <p>2026년 최신 세율이 반영된 실수령액 계산기</p>
+              <header><h3>2026 연봉 계산기</h3></header>
+              <p>최신 세율과 4대보험 요율이 반영된 실수령액 계산기</p>
             </article>
             <article class="calc-card-static">
-              <h3>대출 이자 계산기</h3>
-              <p>원리금 균등 상환 방식의 대출 상환액 계산</p>
+              <header><h3>대출 이자 계산기</h3></header>
+              <p>원리금 균등 상환 등 다양한 방식의 대출 이자 계산</p>
             </article>
             <article class="calc-card-static">
-              <h3>주식 배당금 계산기</h3>
-              <p>배당소득세 15.4%를 제외한 배당금 실수령액 계산</p>
+              <header><h3>주식 배당금 계산기</h3></header>
+              <p>배당소득세를 제외한 실제 주식 투자 수익 계산</p>
             </article>
             <article class="calc-card-static">
-              <h3>부가세 계산기</h3>
-              <p>공급가액 및 합계금액 기준 부가가치세 계산</p>
+              <header><h3>부가세 계산기</h3></header>
+              <p>사업자를 위한 공급가액 및 부가가치세 자동 계산</p>
             </article>
           </div>
         </div>
         
-        <!-- SEO를 위한 상세 설명 섹션 -->
-        <section class="seo-description-section">
-          <h3>다재다능 계산기 Hub 서비스 소개</h3>
+        <!-- SEO 상세 설명 섹션 (Semantic Tag 강화) -->
+        <section class="seo-description-section" id="about-service">
+          <h3>다재다능 계산기 Hub 서비스 상세 소개</h3>
           <p>
-            본 서비스는 일상생활과 비즈니스에 꼭 필요한 다양한 <strong>계산기</strong>를 한곳에 모아 제공하는 통합 플랫폼입니다. 
-            <strong>2026년 최신 연봉 계산기</strong>부터 시작하여 <strong>대출 이자 계산기</strong>, <strong>주식 배당금 계산기</strong>, 
-            <strong>부가세 계산기</strong>, <strong>평수 변환기</strong> 등 10종 이상의 스마트한 도구를 무료로 이용하실 수 있습니다.
+            본 서비스는 일상생활과 비즈니스에 필수적인 <strong>통합 계산기</strong> 기능을 제공합니다. 
+            단순한 숫자 입력을 넘어 2026년 최신 법정 요율(최저임금, 국민연금, 건강보험 등)을 실시간으로 반영하여 가장 정확한 결과를 도출합니다.
           </p>
           <p>
-            모든 계산은 2026년 법정 기준(최저임금, 4대보험 요율 등)을 준수하며, 복잡한 공식 없이 숫자만 입력하면 즉시 결과를 확인할 수 있습니다. 
-            "계산기"가 필요할 때 언제든 방문하여 빠르고 정확하게 계산해 보세요.
+            주요 제공 기능:
           </p>
+          <ul>
+            <li><strong>연봉 및 세금:</strong> 실수령액 계산기, 시급 변환기, 연말정산 미리보기</li>
+            <li><strong>금융 및 투자:</strong> 대출 이자 계산기, 주식 배당금 계산기, 복리 계산기</li>
+            <li><strong>비즈니스:</strong> 부가세 계산기, 평수 변환기, 할인율 계산기</li>
+            <li><strong>건강 및 생활:</strong> BMI 계산기, 유류비 계산기, 날짜 계산기</li>
+          </ul>
         </section>
 
         <div id="active-calculator" class="active-calculator-view hidden">
-          <button id="back-to-list" class="back-btn"><i data-lucide="arrow-left"></i> 목록으로</button>
+          <button id="back-to-list" class="back-btn"><i data-lucide="arrow-left"></i> 계산기 목록으로 돌아가기</button>
           <div id="calculator-container"></div>
         </div>
       </main>
     </div>
 
     <footer class="footer">
-      <div class="footer-links">
+      <nav class="footer-links">
+        <a href="#about-service">서비스 소개</a>
         <a href="#">이용약관</a>
         <a href="#">개인정보처리방침</a>
-        <a href="#">문의하기</a>
-      </div>
-      <p>&copy; 2026 다재다능 계산기 Hub. 모든 권리 보유.</p>
+      </nav>
+      <p>&copy; 2026 다재다능 계산기 Hub. 모든 계산 결과는 참고용이며 법적 책임은 지지 않습니다.</p>
     </footer>
   </div>
   

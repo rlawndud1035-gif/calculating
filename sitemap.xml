@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 메인 페이지 -->
   <url>
     <loc>https://calculatin.pages.dev/</loc>
-    <lastmod>2026-03-12</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+  </url>
+  <!-- 주요 기능 섹션 (앵커 링크 활용) -->
+  <url>
+    <loc>https://calculatin.pages.dev/#salary</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculatin.pages.dev/#loan</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://calculatin.pages.dev/#dividend</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
