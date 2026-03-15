@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://calculating-hub.web.app/sitemap.xml
+Sitemap: https://calculatin.pages.dev/sitemap.xml
