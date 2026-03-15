@@ -5,12 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="naver-site-verification" content="7d5a56b07e8d39caf5997f6d55d6be7f70e17181" />
   <meta name="google-site-verification" content="QqGmlF_U7HaZZsDEJltjP1_FLjt7DOMM816FEA4EpjQ" />
-  <title>다재다능 계산기</title>
-  <meta name="description" content="2026 연봉, 대출, 배당금 등 모든 필수 계산을 한곳에서 쉽고 빠르게!">
+  <title id="meta-title">다재다능 계산기</title>
+  <meta name="description" id="meta-description" content="2026 연봉, 대출, 배당금 등 모든 필수 계산을 한곳에서 쉽고 빠르게!">
   <meta name="keywords" content="계산기, 다재다능 계산기, 연봉 계산기, 실수령액 계산기, 대출 이자 계산기, 주식 배당금 계산기, 부가세 계산기, 시급 월급 변환기, 평수 변환기, 예적금 이자 계산기, 더치페이 계산기, 할인율 계산기, BMI 계산기, 유류비 계산기, 퍼센트 계산기, 물 권장량 계산기">
   <link rel="canonical" href="https://calculatin.pages.dev/">
   
-  <!-- 파비콘 및 로고 설정 -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/favicon.svg">
 
@@ -18,32 +17,49 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://calculatin.pages.dev/">
   <meta property="og:title" content="다재다능 계산기">
-  <meta property="og:description" content="연봉, 대출, 투자 등 모든 계산을 2026년 최신 기준으로 정확하게 확인하세요.">
+  <meta property="og:description" content="2026년 최신 기준 연봉, 대출, 투자 등 모든 계산을 지원합니다.">
   <meta property="og:image" content="https://calculatin.pages.dev/og-image.png">
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://calculatin.pages.dev/">
-  <meta property="twitter:title" content="다재다능 계산기">
-  <meta property="twitter:description" content="스마트한 일상을 위한 필수 계산기 모음 서비스입니다.">
-  
-  <!-- 구조화 데이터 (JSON-LD) 로고 및 사이트 정보 -->
+  <!-- 구조화 데이터 (JSON-LD) 통합 및 확장 -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "다재다능 계산기",
-    "url": "https://calculatin.pages.dev/",
-    "logo": "https://calculatin.pages.dev/og-image.png",
-    "description": "2026년 최신 연봉, 대출, 배당금 등 모든 계산을 지원하는 통합 계산기 서비스",
-    "applicationCategory": "BusinessApplication, FinanceApplication",
-    "operatingSystem": "All",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "KRW"
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "다재다능 계산기",
+      "url": "https://calculatin.pages.dev/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://calculatin.pages.dev/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "다재다능 계산기",
+      "url": "https://calculatin.pages.dev/",
+      "image": "https://calculatin.pages.dev/og-image.png",
+      "description": "2026년 최신 연봉, 대출, 배당금 등 15종 이상의 통합 계산기 서비스",
+      "applicationCategory": "BusinessApplication, FinanceApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "KRW"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "다재다능 계산기",
+      "url": "https://calculatin.pages.dev/",
+      "logo": "https://calculatin.pages.dev/og-image.png",
+      "sameAs": [
+        "https://github.com/rlawndud1035-gif/calculating"
+      ]
     }
-  }
+  ]
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,7 +72,9 @@
   <div id="app">
     <header class="header">
       <div class="logo-container">
-        <h1 class="logo">다재다능 계산기</h1>
+        <a href="/" class="logo-link">
+          <h1 class="logo">다재다능 계산기</h1>
+        </a>
       </div>
       <div class="search-container">
         <label for="search-input" class="sr-only">계산기 검색</label>
@@ -86,37 +104,76 @@
           </section>
           
           <div id="calculator-grid" class="calculator-grid">
-            <!-- SEO용 정적 콘텐츠 (검색 엔진 수집용) -->
-            <article class="calc-card-static">
-              <header><h3>연봉 계산기</h3></header>
-              <p>2026년 최신 세율과 4대보험 요율이 반영된 실수령액 계산기</p>
-            </article>
-            <article class="calc-card-static">
-              <header><h3>대출 이자 계산기</h3></header>
-              <p>원리금 균등 상환 등 다양한 방식의 대출 상환액 계산</p>
-            </article>
-            <article class="calc-card-static">
-              <header><h3>주식 배당금 계산기</h3></header>
-              <p>배당소득세 15.4%를 제외한 실제 배당금 수익 계산</p>
-            </article>
-            <article class="calc-card-static">
-              <header><h3>시급 월급 변환기</h3></header>
-              <p>주휴수당이 포함된 정확한 최저임금 급여 계산기</p>
-            </article>
+            <!-- 검색 엔진을 위한 정적 링크 목록 (SEO 최적화) -->
+            <a href="#salary-calc" class="calc-card-static">
+              <h3>연봉/실수령액 계산기</h3>
+              <p>2026년 최신 세액 반영 월급 계산기</p>
+            </a>
+            <a href="#mortgage-calc" class="calc-card-static">
+              <h3>대출 이자 계산기</h3>
+              <p>원리금 균등 상환 방식 대출금 계산</p>
+            </a>
+            <a href="#stock-dividend" class="calc-card-static">
+              <h3>주식 배당금 계산기</h3>
+              <p>배당소득세 15.4% 제외 실수령액 계산</p>
+            </a>
+            <a href="#hourly-to-monthly" class="calc-card-static">
+              <h3>시급 월급 변환기</h3>
+              <p>주휴수당 포함 최저임금 급여 변환</p>
+            </a>
+            <a href="#vat-calc" class="calc-card-static">
+              <h3>부가세 계산기</h3>
+              <p>공급가액 및 부가가치세 자동 계산</p>
+            </a>
+            <a href="#pyeong-calc" class="calc-card-static">
+              <h3>평수 변환기</h3>
+              <p>아파트 평수와 제곱미터 상호 변환</p>
+            </a>
+            <a href="#savings-calc" class="calc-card-static">
+              <h3>예적금 이자 계산기</h3>
+              <p>단리 복리 예적금 만기 수령액 계산</p>
+            </a>
+            <a href="#bmi-calc" class="calc-card-static">
+              <h3>BMI 비만도 계산기</h3>
+              <p>체질량 지수 기반 건강 상태 확인</p>
+            </a>
+            <a href="#fuel-cost-calc" class="calc-card-static">
+              <h3>유류비 계산기</h3>
+              <p>거리와 연비 기준 예상 유류비 계산</p>
+            </a>
+            <a href="#percent-calc" class="calc-card-static">
+              <h3>퍼센트 계산기</h3>
+              <p>증감율 및 퍼센트 차이 자동 계산</p>
+            </a>
+            <a href="#split-bill-calc" class="calc-card-static">
+              <h3>더치페이 계산기</h3>
+              <p>인원별 식비 나누기 및 팁 계산</p>
+            </a>
+            <a href="#discount-calc" class="calc-card-static">
+              <h3>할인율 계산기</h3>
+              <p>할인 적용 전후 가격 비교 계산</p>
+            </a>
+            <a href="#water-calc" class="calc-card-static">
+              <h3>물 권장량 계산기</h3>
+              <p>체중 기준 일일 수분 섭취 권장량</p>
+            </a>
+            <a href="#standard-calc" class="calc-card-static">
+              <h3>표준 계산기</h3>
+              <p>기본 사칙연산 사무용 계산기</p>
+            </a>
           </div>
         </div>
         
-        <!-- SEO 상세 설명 섹션 -->
         <section class="seo-description-section" id="about-service">
-          <h3>다재다능 계산기 서비스 소개</h3>
+          <h3>다재다능 계산기 - 스마트 통합 계산 플랫폼</h3>
           <p>
-            본 서비스는 <strong>다재다능 계산기</strong>라는 이름에 걸맞게 일상과 비즈니스에 필요한 15종 이상의 모든 계산 도구를 제공합니다. 
-            <strong>연봉 계산기</strong>, <strong>대출 이자 계산기</strong>, <strong>주식 배당금 계산기</strong> 등을 2026년 최신 데이터로 이용해 보세요.
+            <strong>다재다능 계산기</strong>는 2026년 최신 법정 기준(국민연금, 건강보험 요율 등)을 완벽 반영한 통합 계산기 서비스입니다. 
+            단순한 <strong>계산기</strong>를 넘어, 사용자의 일상과 비즈니스에 필요한 모든 수치 정보를 정확하게 제공합니다.
           </p>
         </section>
 
         <div id="active-calculator" class="active-calculator-view hidden">
-          <button id="back-to-list" class="back-btn"><i data-lucide="arrow-left"></i> 계산기 목록으로 돌아가기</button>
+          <button id="back-to-list" class="back-btn"><i data-lucide="arrow-left"></i> 목록으로 돌아가기</button>
           <div id="calculator-container"></div>
         </div>
       </main>
@@ -131,7 +188,6 @@
       <p>&copy; 2026 다재다능 계산기. 모든 계산 결과는 참고용입니다.</p>
     </footer>
   </div>
-  
   <script defer type="module" src="/main.js"></script>
 </body>
 </html>

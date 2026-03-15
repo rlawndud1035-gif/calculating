@@ -661,6 +661,20 @@ const searchInput = document.getElementById('search-input');
 const categoryItems = document.querySelectorAll('.category-item');
 const logo = document.querySelector('.logo');
 
+// SEO: Update Title and Description dynamically
+function updateMetadata(calc) {
+  const metaTitle = document.getElementById('meta-title');
+  const metaDesc = document.querySelector('meta[name="description"]');
+  
+  if (calc) {
+    document.title = `${calc.title} - 다재다능 계산기`;
+    metaDesc.setAttribute('content', calc.description);
+  } else {
+    document.title = '다재다능 계산기';
+    metaDesc.setAttribute('content', '2026 연봉, 대출, 배당금 등 모든 필수 계산을 한곳에서 쉽고 빠르게!');
+  }
+}
+
 // Render Grid
 function renderGrid() {
   grid.innerHTML = '';
@@ -672,7 +686,9 @@ function renderGrid() {
   });
 
   filtered.forEach(calc => {
-    const card = document.createElement('div');
+    // SEO: Use <a> tag with href for crawler navigation
+    const card = document.createElement('a');
+    card.href = `#${calc.id}`;
     card.className = 'calc-card';
     card.innerHTML = `
       <div class="icon-box">
@@ -681,15 +697,14 @@ function renderGrid() {
       <h3>${calc.title}</h3>
       <p>${calc.description}</p>
     `;
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
+      e.preventDefault();
       showCalculator(calc);
-      // Update URL/History for back button
       history.pushState({ view: 'calculator', id: calc.id }, '', `#${calc.id}`);
     });
     grid.appendChild(card);
   });
   
-  // Refresh Lucide icons
   if (window.lucide) {
     window.lucide.createIcons();
   }
@@ -701,6 +716,7 @@ function showCalculator(calc) {
   activeView.classList.remove('hidden');
   calcContainer.innerHTML = calc.render();
   calc.init();
+  updateMetadata(calc);
   if (window.lucide) {
     window.lucide.createIcons();
   }
@@ -711,6 +727,7 @@ function showCalculator(calc) {
 function goBackToList() {
   activeView.classList.add('hidden');
   gridContainer.classList.remove('hidden');
+  updateMetadata(null);
   window.scrollTo(0, 0);
   if (window.location.hash) {
     history.pushState({ view: 'list' }, '', window.location.pathname);
@@ -728,14 +745,29 @@ backBtn.addEventListener('click', () => {
   goBackToList();
 });
 
+// Deep Linking & Initial Load Handling
+function handleRoute() {
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    const calc = calculators.find(c => c.id === hash);
+    if (calc) {
+      showCalculator(calc);
+      return;
+    }
+  }
+  goBackToList();
+}
+
+// Listen for hash changes (for back/forward buttons)
+window.addEventListener('hashchange', handleRoute);
+
 // Browser back button handling
 window.addEventListener('popstate', (event) => {
   if (event.state && event.state.view === 'calculator') {
     const calc = calculators.find(c => c.id === event.state.id);
     if (calc) showCalculator(calc);
   } else {
-    activeView.classList.add('hidden');
-    gridContainer.classList.remove('hidden');
+    goBackToList();
   }
 });
 
@@ -748,20 +780,16 @@ searchInput.addEventListener('input', (e) => {
 // Category Filter
 categoryItems.forEach(item => {
   item.addEventListener('click', () => {
-    // 1. Close active calculator view if open
     activeView.classList.add('hidden');
     gridContainer.classList.remove('hidden');
-
-    // 2. Update active category and filter
     categoryItems.forEach(i => i.classList.remove('active'));
     item.classList.add('active');
     currentCategory = item.dataset.category;
     renderGrid();
-
-    // 3. Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 });
 
 // Init
 renderGrid();
+handleRoute();
