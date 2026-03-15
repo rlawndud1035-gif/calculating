@@ -1,5 +1,3 @@
-Sitemap: https://calculatin.pages.dev/sitemap.xml
-
 User-agent: *
 Allow: /
 
@@ -8,3 +6,5 @@ Allow: /
 
 User-agent: Yeti
 Allow: /
+
+Sitemap: https://calculatin.pages.dev/sitemap.xml
