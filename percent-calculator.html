@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-6454047865688551">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6454047865688551" crossorigin="anonymous"></script>
+  <title>퍼센트 계산기 - 증감율 및 퍼센트 차이 자동 계산</title>
+  <meta name="description" content="비율 계산, 증감율, 할인율 등 복잡한 퍼센트 계산을 간편하게 해결하세요. 비즈니스 보고서 및 일상 수치 계산 필수 도구.">
+  <link rel="canonical" href="https://calculatin.pages.dev/percent-calculator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href='/style.css' rel='stylesheet'>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="logo-container">
+        <a href="/" class="logo-link"><h1 class="logo">다재다능 계산기</h1></a>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <div class="active-calculator-view">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="2020202020" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div id="calculator-container">
+          <div class="calc-header">
+            <h2>퍼센트/증감율 계산기</h2>
+            <p>비즈니스 보고서에 필수적인 증감율 및 퍼센트 계산을 지원합니다.</p>
+          </div>
+          <div class="input-group">
+            <label>기준 값 (A)</label>
+            <input type="number" id="base-val" placeholder="기존 값">
+          </div>
+          <div class="input-group">
+            <label>변경 값 (B)</label>
+            <input type="number" id="change-val" placeholder="현재 값">
+          </div>
+          <button class="btn-calculate" id="calc-percent">증감율 확인</button>
+          <div id="result" class="result-area hidden"></div>
+        </div>
+
+        <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #e2e8f0;">
+
+        <section class="guide-content">
+          <h2>이 계산기란?</h2>
+          <p>
+            퍼센트 계산기는 두 수치 사이의 비율적 관계를 계산해 주는 도구입니다. 일상생활에서 가장 많이 쓰이면서도 막상 계산하려고 하면 헷갈리기 쉬운 것이 바로 '퍼센트(%)'입니다. 어제의 가격과 오늘의 가격이 다를 때 얼마나 올랐는지, 전체 예산 중 특정 항목이 차지하는 비중이 얼마인지 등을 즉시 산출해 줍니다.
+          </p>
+          <p>
+            특히 직장인들에게는 보고서 작성 시 '전년 대비 성장률'이나 '목표 달성률'을 계산하는 데 필수적입니다. 또한 투자자들에게는 수익률 계산기로, 쇼핑객들에게는 할인율 계산기로 활용될 수 있는 다목적 도구입니다. 소수점 아래까지 정밀하게 계산하여 오차 없는 데이터를 제공합니다.
+          </p>
+
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="2121212121" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+          <h2>계산 방법 및 공식</h2>
+          <p>
+            가장 자주 쓰이는 '증감율' 계산 공식은 다음과 같습니다:
+          </p>
+          <p style="background: #f1f5f9; padding: 1rem; border-radius: 8px; font-family: monospace; text-align: center;">
+            증감율(%) = ((변경 값 - 기준 값) / 기준 값) × 100
+          </p>
+          <ul>
+            <li><strong>기준 값 (A):</strong> 비교의 바탕이 되는 수치 (예: 작년 매출)</li>
+            <li><strong>변경 값 (B):</strong> 현재의 수치 (예: 올해 매출)</li>
+            <li>결과가 양수(+)면 증가, 음수(-)면 감소를 의미합니다.</li>
+          </ul>
+          <p>
+            예시: 주식 가격이 50,000원에서 60,000원이 되었다면, ((60000 - 50000) / 50000) × 100 = 20% 상승한 것입니다.
+          </p>
+
+          <h2>활용 예시</h2>
+          <p><strong>1. 비즈니스 성과 지표 관리:</strong> 지난달 방문자 수가 1,000명이었는데 이번 달에 1,250명이 되었다면, '방문자 수 25% 증가'라는 명확한 수치를 보고서에 기재할 수 있습니다.</p>
+          <p><strong>2. 개인 자산 수익률 확인:</strong> 코인이나 주식에 100만 원을 투자했는데 현재 잔액이 85만 원이라면, '수익률 -15%'임을 확인하고 대응 전략을 세울 수 있습니다.</p>
+
+          <h2>자주 묻는 질문(FAQ)</h2>
+          <dl class="seo-faq">
+            <dt>Q. '퍼센트(%)'와 '퍼센트포인트(%p)'의 차이는 무엇인가요?</dt>
+            <dd>퍼센트는 비율의 변화를 나타내고, 퍼센트포인트는 비율 그 자체의 산술적 차이를 나타냅니다. 예를 들어 이자율이 1%에서 2%가 되었다면, 100% 상승한 것이며 1%p 상승한 것입니다.</dd>
+            
+            <dt>Q. 기준 값이 0이면 계산이 안 되나요?</dt>
+            <dd>수학적으로 0으로 나누는 것은 불가능하므로, 기준 값이 0인 경우에는 증감율을 산출할 수 없습니다.</dd>
+            
+            <dt>Q. 세일 기간 할인율 계산도 가능한가요?</dt>
+            <dd>네, (정가 - 할인가) / 정가 × 100 공식을 통해 실제 할인율이 몇 퍼센트인지 확인할 수 있습니다.</dd>
+          </dl>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <nav class="footer-links">
+        <a href="/about.html">서비스 소개</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+      </nav>
+      <p>&copy; 2026 다재다능 계산기. 모든 정보는 참고용이며 법적 증빙 자료로 활용될 수 없습니다.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      document.getElementById('calc-percent').addEventListener('click', () => {
+        const a = parseFloat(document.getElementById('base-val').value) || 0;
+        const b = parseFloat(document.getElementById('change-val').value) || 0;
+        if(a === 0) return;
+        
+        const rate = ((b - a) / a) * 100;
+        const sign = rate >= 0 ? '+' : '';
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>변동 결과</h4>
+          <div class="result-item"><span class="result-label">차이</span><span class="result-value">${(b-a).toLocaleString()}</span></div>
+          <div class="result-item"><span class="result-label">증감율</span><span class="result-value" style="color: ${rate >= 0 ? '#ef4444' : '#3b82f6'};">${sign}${rate.toFixed(2)}%</span></div>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

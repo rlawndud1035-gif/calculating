@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-6454047865688551">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6454047865688551" crossorigin="anonymous"></script>
+  <title>환율 계산기 - 주요 통화 실시간 변환 (가상 환율)</title>
+  <meta name="description" content="미국 달러(USD), 일본 엔(JPY), 유럽 유로(EUR)를 원화로 간편하게 변환하세요. 여행 및 해외 직구 시 필수적인 환율 계산 도구.">
+  <link rel="canonical" href="https://calculatin.pages.dev/currency-calculator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href='/style.css' rel='stylesheet'>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="logo-container">
+        <a href="/" class="logo-link"><h1 class="logo">다재다능 계산기</h1></a>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <div class="active-calculator-view">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="9999999999" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div id="calculator-container">
+          <div class="calc-header">
+            <h2>환율 계산기</h2>
+            <p>외국 통화를 한국 원화(KRW)로 변환하거나 그 반대를 계산합니다.</p>
+          </div>
+          <div class="calc-guide">
+            <strong>참고:</strong> 본 계산기는 고정 가상 환율(USD: 1400원, JPY: 9.5원, EUR: 1500원)을 사용합니다. 실제 은행 환율과는 차이가 있을 수 있습니다.
+          </div>
+          <div class="input-group">
+            <label>통화 선택</label>
+            <select id="currency-type">
+              <option value="USD">미국 달러 (USD)</option>
+              <option value="JPY">일본 엔 (JPY)</option>
+              <option value="EUR">유럽 유로 (EUR)</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>외화 금액</label>
+            <input type="number" id="foreign-amount" placeholder="금액 입력" value="1">
+          </div>
+          <button class="btn-calculate" id="calc-currency">원화로 변환하기</button>
+          <div id="result" class="result-area hidden"></div>
+        </div>
+
+        <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #e2e8f0;">
+
+        <section class="guide-content">
+          <h2>이 계산기란?</h2>
+          <p>
+            환율 계산기는 서로 다른 국가의 화폐 가치를 비교하여 변환해 주는 도구입니다. 해외 여행을 계획하거나, 아마존이나 라쿠텐 같은 해외 사이트에서 직접 구매(직구)를 할 때, 그리고 외국 주식에 투자할 때 가장 먼저 확인해야 하는 것이 바로 환율입니다. 
+          </p>
+          <p>
+            본 계산기는 사용자가 입력한 외화 금액을 바탕으로 한국 원화로 환산했을 때 얼마가 되는지 즉시 보여줍니다. 특히 환율 변동성이 큰 시기에는 계산기를 통해 예산을 미리 짜보는 것이 과도한 지출을 막는 데 큰 도움이 됩니다. 비록 가상 환율을 사용하지만, 대략적인 규모를 파악하는 데는 충분한 기능을 제공합니다.
+          </p>
+
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="1010101010" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+          <h2>계산 방법 및 공식</h2>
+          <p>
+            환율 변환 공식은 단순합니다:
+          </p>
+          <p style="background: #f1f5f9; padding: 1rem; border-radius: 8px; font-family: monospace; text-align: center;">
+            원화 금액(KRW) = 외화 금액 × 해당 통화의 환율
+          </p>
+          <p>본 계산기에 적용된 고정 환율 기준은 다음과 같습니다:</p>
+          <ul>
+            <li><strong>USD (미국 달러):</strong> 1달러 = 1,400원</li>
+            <li><strong>JPY (일본 엔):</strong> 1엔 = 9.5원 (100엔당 950원 꼴)</li>
+            <li><strong>EUR (유럽 유로):</strong> 1유로 = 1,500원</li>
+          </ul>
+          <p>예를 들어, 100달러를 원화로 환산하면 100 × 1,400 = 140,000원이 됩니다.</p>
+
+          <h2>활용 예시</h2>
+          <p><strong>1. 해외 여행 경비 산출:</strong> 일본 여행을 위해 50,000엔을 환전하려고 할 때, 한국 돈으로 약 475,000원 정도가 필요하다는 것을 미리 파악하여 예산을 분배할 수 있습니다.</p>
+          <p><strong>2. 해외 직구 가격 비교:</strong> 미국 사이트에서 50달러짜리 물건을 발견했을 때, 국내 판매가와 비교하기 위해 환율을 적용하여 70,000원이라는 기준 가격을 잡을 수 있습니다.</p>
+
+          <h2>자주 묻는 질문(FAQ)</h2>
+          <dl class="seo-faq">
+            <dt>Q. 매매기준율과 현찰 살 때 환율이 왜 다른가요?</dt>
+            <dd>매매기준율은 순수한 화폐 가치이며, 실제로 은행에서 환전할 때는 은행의 운영 비용과 수익인 '환전 수수료'가 붙습니다. 그래서 현찰을 살 때는 기준율보다 비싸게 사게 됩니다.</dd>
+            
+            <dt>Q. 환율 우대 90%라는 말은 무슨 뜻인가요?</dt>
+            <dd>은행이 가져가는 환전 수수료(스프레드)를 90% 깎아주겠다는 뜻입니다. 환전 금액이 클수록 환율 우대를 많이 받는 것이 유리합니다.</dd>
+            
+            <dt>Q. 가상 환율이 아닌 실시간 환율은 어디서 보나요?</dt>
+            <dd>네이버 금융, 다음 환율, 또는 각 은행(신한, 국민, 하나 등)의 앱을 통해 초 단위로 변동하는 고시 환율을 확인할 수 있습니다.</dd>
+          </dl>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <nav class="footer-links">
+        <a href="/about.html">서비스 소개</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+      </nav>
+      <p>&copy; 2026 다재다능 계산기. 모든 정보는 참고용이며 법적 증빙 자료로 활용될 수 없습니다.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      const rates = {
+        'USD': 1400,
+        'JPY': 9.5,
+        'EUR': 1500
+      };
+
+      document.getElementById('calc-currency').addEventListener('click', () => {
+        const type = document.getElementById('currency-type').value;
+        const amount = parseFloat(document.getElementById('foreign-amount').value) || 0;
+        const rate = rates[type];
+        const krw = amount * rate;
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>변환 결과</h4>
+          <div class="result-item"><span class="result-label">적용 환율</span><span class="result-value">1 ${type} = ${rate.toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">최종 원화 금액</span><span class="result-value" style="color: #2563eb;">${Math.floor(krw).toLocaleString()} KRW</span></div>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

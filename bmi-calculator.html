@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-6454047865688551">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6454047865688551" crossorigin="anonymous"></script>
+  <title>BMI 계산기 - 비만도 및 체질량 지수 측정</title>
+  <meta name="description" content="키와 몸무게를 입력하여 나의 BMI 지수를 확인하세요. 비만도 판정과 건강 관리를 위한 표준 데이터를 제공합니다.">
+  <link rel="canonical" href="https://calculatin.pages.dev/bmi-calculator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href='/style.css' rel='stylesheet'>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="logo-container">
+        <a href="/" class="logo-link"><h1 class="logo">다재다능 계산기</h1></a>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <div class="active-calculator-view">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="7777777777" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div id="calculator-container">
+          <div class="calc-header">
+            <h2>BMI 비만도 계산기</h2>
+            <p>키와 몸무게를 통해 건강 상태를 체크합니다.</p>
+          </div>
+          <div class="input-group">
+            <label>키 (cm)</label>
+            <input type="number" id="height" placeholder="예: 175">
+          </div>
+          <div class="input-group">
+            <label>몸무게 (kg)</label>
+            <input type="number" id="weight" placeholder="예: 70">
+          </div>
+          <button class="btn-calculate" id="calc-bmi">계산하기</button>
+          <div id="result" class="result-area hidden"></div>
+        </div>
+
+        <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #e2e8f0;">
+
+        <section class="guide-content">
+          <h2>이 계산기란?</h2>
+          <p>
+            BMI(Body Mass Index, 체질량 지수) 계산기는 신장과 체중의 비율을 사용하여 사람의 저체중, 정상 체중, 과체중 또는 비만 여부를 추정하는 도구입니다. 전 세계적으로 가장 널리 사용되는 비만 판정 지표 중 하나로, 자신의 체격이 건강 범위 내에 있는지 간편하게 확인할 수 있는 1차적인 건강 스크리닝 도구입니다.
+          </p>
+          <p>
+            많은 현대인들이 불규칙한 식습관과 운동 부족으로 인해 대사 증후군 위험에 노출되어 있습니다. BMI 지수를 정기적으로 체크하는 것은 자신의 몸 상태를 객관적으로 바라보는 첫걸음입니다. 단순히 외적인 모습뿐만 아니라, 각종 만성 질환의 예방 차원에서 적정 체중을 유지하는 것은 매우 중요합니다.
+          </p>
+
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="8888888888" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+          <h2>계산 방법 및 공식</h2>
+          <p>
+            BMI는 다음 공식을 통해 산출됩니다:
+          </p>
+          <p style="background: #f1f5f9; padding: 1rem; border-radius: 8px; font-family: monospace; text-align: center;">
+            BMI = 체중(kg) / (신장(m) × 신장(m))
+          </p>
+          <p>대한비만학회 및 세계보건기구(WHO) 아시아태평양 기준에 따른 판정 수치는 다음과 같습니다:</p>
+          <ul>
+            <li><strong>저체중:</strong> 18.5 미만</li>
+            <li><strong>정상체중:</strong> 18.5 이상 ~ 23 미만</li>
+            <li><strong>과체중:</strong> 23 이상 ~ 25 미만</li>
+            <li><strong>비만:</strong> 25 이상</li>
+          </ul>
+          <p>예를 들어, 키 175cm, 몸무게 70kg인 경우: 70 / (1.75 * 1.75) = 약 22.86으로 '정상 범위'의 끝자락에 해당합니다.</p>
+
+          <h2>활용 예시</h2>
+          <p><strong>1. 다이어트 목표 설정:</strong> 현재 BMI가 26(비만)이라면, 정상 범위인 23 미만으로 가기 위해 빼야 할 체중을 역산하여 구체적인 감량 계획을 세울 수 있습니다.</p>
+          <p><strong>2. 성장기 자녀 건강 관리:</strong> 아이들의 성장에 따른 체질량 변화를 기록하며 소아 비만을 예방하고 균형 잡힌 영양 섭취를 돕는 지표로 활용합니다.</p>
+
+          <h2>자주 묻는 질문(FAQ)</h2>
+          <dl class="seo-faq">
+            <dt>Q. 근육질 체형도 BMI가 정확한가요?</dt>
+            <dd>BMI의 가장 큰 한계점은 지방과 근육을 구분하지 못한다는 것입니다. 운동선수처럼 근육량이 많은 사람은 지방이 적어도 BMI상으로는 '과체중'이나 '비만'으로 나올 수 있습니다.</dd>
+            
+            <dt>Q. 나이가 들어도 기준이 똑같나요?</dt>
+            <dd>일반적으로 성인 기준은 동일하지만, 고령자의 경우 약간의 과체중이 오히려 건강에 이롭다는 연구 결과도 있습니다. 자신의 신체 상황에 맞는 정확한 진단은 전문가와 상의하시기 바랍니다.</dd>
+            
+            <dt>Q. 허리둘레와는 어떤 관계인가요?</dt>
+            <dd>BMI가 정상이더라도 허리둘레가 굵다면 '복부 비만'일 수 있습니다. 건강을 위해서는 BMI와 허리둘레를 함께 체크하는 것이 더욱 정확합니다.</dd>
+          </dl>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <nav class="footer-links">
+        <a href="/about.html">서비스 소개</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+      </nav>
+      <p>&copy; 2026 다재다능 계산기. 모든 정보는 참고용이며 법적 증빙 자료로 활용될 수 없습니다.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      document.getElementById('calc-bmi').addEventListener('click', () => {
+        const h = parseFloat(document.getElementById('height').value) / 100;
+        const w = parseFloat(document.getElementById('weight').value);
+        if(!h || !w) return;
+        
+        const bmi = w / (h * h);
+        let status = '';
+        let color = '';
+        if(bmi < 18.5) { status = '저체중'; color = '#3b82f6'; }
+        else if(bmi < 23) { status = '정상'; color = '#10b981'; }
+        else if(bmi < 25) { status = '과체중'; color = '#f59e0b'; }
+        else { status = '비만'; color = '#ef4444'; }
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>건강 진단 결과</h4>
+          <div class="result-item"><span class="result-label">나의 BMI</span><span class="result-value">${bmi.toFixed(2)}</span></div>
+          <div class="result-item"><span class="result-label">상태</span><span class="result-value" style="color: ${color};">${status}</span></div>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

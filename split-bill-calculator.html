@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-6454047865688551">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6454047865688551" crossorigin="anonymous"></script>
+  <title>더치페이 계산기 - 인원별 식비 나누기 및 팁 계산</title>
+  <meta name="description" content="총 결제 금액을 인원수대로 정확하게 나누세요. 10원 단위 절상 기능과 팁 합산 기능을 포함한 편리한 모임 정산 도구.">
+  <link rel="canonical" href="https://calculatin.pages.dev/split-bill-calculator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href='/style.css' rel='stylesheet'>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="logo-container">
+        <a href="/" class="logo-link"><h1 class="logo">다재다능 계산기</h1></a>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <div class="active-calculator-view">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="2222222222" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div id="calculator-container">
+          <div class="calc-header">
+            <h2>더치페이/팁 계산기</h2>
+            <p>식사 비용을 인원수대로 정확하게 나눕니다.</p>
+          </div>
+          <div class="input-group">
+            <label>총 결제 금액 (원)</label>
+            <input type="number" id="total-bill" placeholder="예: 85000">
+          </div>
+          <div class="input-group">
+            <label>인원 수 (명)</label>
+            <input type="number" id="split-count" placeholder="예: 4">
+          </div>
+          <div class="input-group">
+            <label>추가 팁 (원, 옵션)</label>
+            <input type="number" id="tip-amount" value="0">
+          </div>
+          <button class="btn-calculate" id="calc-split">나누기</button>
+          <div id="result" class="result-area hidden"></div>
+        </div>
+
+        <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #e2e8f0;">
+
+        <section class="guide-content">
+          <h2>이 계산기란?</h2>
+          <p>
+            더치페이 계산기는 여러 사람이 모여 식사를 하거나 공동 비용을 지불했을 때, 각자가 부담해야 할 금액을 공평하게 나누어 주는 도구입니다. '더치페이(Dutch Pay)'라는 용어는 네덜란드식 대접법에서 유래했는데, 현대에는 각자 먹은 만큼 내거나 총액을 사람 수대로 나누는 문화를 뜻합니다. 
+          </p>
+          <p>
+            즐거운 모임 끝에 정산 문제로 머리 아플 필요가 없습니다. 이 계산기는 총액을 인원수로 나누는 기본 기능은 물론, 잔돈 계산의 번거로움을 덜어주기 위해 10원 단위 절상 기능을 포함하고 있습니다. 또한 해외 여행 시 필요한 팁(Tip) 합산 기능까지 제공하여 국내외 어디서든 편리한 정산을 돕습니다.
+          </p>
+
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="2323232323" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+          <h2>계산 방법 및 공식</h2>
+          <p>
+            정산 금액 산출 공식은 다음과 같습니다:
+          </p>
+          <p style="background: #f1f5f9; padding: 1rem; border-radius: 8px; font-family: monospace; text-align: center;">
+            1인당 금액 = (총 결제 금액 + 추가 팁) / 인원 수
+          </p>
+          <p>본 계산기는 깔끔한 정산을 위해 결과값을 10원 단위로 올림(절상) 처리합니다.</p>
+          <p>
+            예시: 총 85,000원이 나왔고 4명이서 나눌 때, 단순 계산으로는 21,250원이지만 정산의 편의를 위해 21,250원 또는 21,260원 등으로 깔끔하게 떨어지게끔 안내합니다. (본 계산기는 10원 단위 올림 적용)
+          </p>
+
+          <h2>활용 예시</h2>
+          <p><strong>1. 직장 동료와의 점심 식사:</strong> 여러 명의 메뉴 가격이 다를 때, 일일이 계산하기보다 총액을 깔끔하게 'N분의 1' 하여 메신저로 정산 요청을 보낼 때 유용합니다.</p>
+          <p><strong>2. 해외 여행지 식당 정산:</strong> 미국이나 유럽 여행 중 빌지에 적힌 음식값에 서비스 팁 15%를 더한 총액을 일행들과 즉시 나누어 지불할 때 활용할 수 있습니다.</p>
+
+          <h2>자주 묻는 질문(FAQ)</h2>
+          <dl class="seo-faq">
+            <dt>Q. '절상' 처리를 하는 이유는 무엇인가요?</dt>
+            <dd>1원 단위까지 나누면 송금할 때 번거롭기 때문입니다. 조금씩 더 모인 잔돈은 보통 계산한 사람에게 수고비조로 주거나 다음 모임 회비로 넘기곤 합니다.</dd>
+            
+            <dt>Q. 늦게 온 사람이나 술을 안 마신 사람 계산은 어쩌죠?</dt>
+            <dd>그런 경우는 수동 계산이 필요하지만, 대략적인 기준점을 잡기 위해 본 계산기로 전체 평균을 먼저 낸 뒤 특정 인원만 조정하는 방식으로 활용하면 편리합니다.</dd>
+            
+            <dt>Q. 한국에서도 팁을 입력해야 하나요?</dt>
+            <dd>한국 식당은 팁 문화가 없으므로 팁 입력란에 '0'을 넣으시면 됩니다. 배달료나 추가 봉사료가 있을 때 활용하셔도 좋습니다.</dd>
+          </dl>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <nav class="footer-links">
+        <a href="/about.html">서비스 소개</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+      </nav>
+      <p>&copy; 2026 다재다능 계산기. 모든 정보는 참고용이며 법적 증빙 자료로 활용될 수 없습니다.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      document.getElementById('calc-split').addEventListener('click', () => {
+        const total = parseFloat(document.getElementById('total-bill').value) || 0;
+        const people = parseFloat(document.getElementById('split-count').value) || 1;
+        const tip = parseFloat(document.getElementById('tip-amount').value) || 0;
+        
+        const perPerson = (total + tip) / people;
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>더치페이 결과</h4>
+          <div class="result-item"><span class="result-label">총 합계액</span><span class="result-value">${(total + tip).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">1인당 금액</span><span class="result-value" style="color: #f59e0b;">${Math.ceil(perPerson / 10) * 10}원</span></div>
+          <p style="font-size: 0.8rem; color: #64748b; margin-top: 1rem;">* 10원 단위 절상(올림)된 금액입니다.</p>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

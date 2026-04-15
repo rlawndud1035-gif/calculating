@@ -2,6 +2,7 @@
 const calculators = [
   {
     id: 'standard-calc',
+    url: '/standard-calculator.html',
     title: '표준 계산기',
     description: '사칙연산(+, -, *, /)을 지원하는 기본 사무용 계산기입니다.',
     category: 'business',
@@ -66,6 +67,7 @@ const calculators = [
   },
   {
     id: 'vat-calc',
+    url: '/vat-calculator.html',
     title: '부가세 계산기',
     description: '공급가액 또는 합계금액을 기준으로 부가세(10%)를 계산합니다.',
     category: 'business',
@@ -117,6 +119,7 @@ const calculators = [
   },
   {
     id: 'pyeong-calc',
+    url: '/pyeong-to-m2-calculator.html',
     title: '평수 ↔ 제곱미터 변환기',
     description: '아파트 평수와 제곱미터(㎡)를 상호 변환합니다.',
     category: 'finance',
@@ -154,6 +157,7 @@ const calculators = [
   },
   {
     id: 'savings-calc',
+    url: '/interest-calculator.html',
     title: '예적금 이자 계산기',
     description: '단리/복리 이자와 세후 실수령액을 계산합니다.',
     category: 'finance',
@@ -214,6 +218,7 @@ const calculators = [
   },
   {
     id: 'split-bill-calc',
+    url: '/split-bill-calculator.html',
     title: '더치페이/팁 계산기',
     description: '식사 비용을 인원수대로 정확하게 나눕니다.',
     category: 'life',
@@ -258,6 +263,7 @@ const calculators = [
   },
   {
     id: 'discount-calc',
+    url: '/discount-calculator.html',
     title: '할인율 계산기',
     description: '원가와 할인율을 기반으로 최종 가격을 계산합니다.',
     category: 'life',
@@ -297,6 +303,7 @@ const calculators = [
   },
   {
     id: 'water-calc',
+    url: '/water-intake-calculator.html',
     title: '하루 물 권장량 계산기',
     description: '체격 조건에 맞는 일일 수분 섭취량을 계산합니다.',
     category: 'health',
@@ -329,6 +336,7 @@ const calculators = [
   },
   {
     id: 'stock-dividend',
+    url: '/stock-dividend-calculator.html',
     title: '주식 배당금 계산기',
     description: '배당금 수익과 세금(15.4%)을 제외한 실수령액을 계산합니다.',
     category: 'finance',
@@ -373,6 +381,7 @@ const calculators = [
   },
   {
     id: 'salary-calc',
+    url: '/salary-calculator.html',
     title: '연봉/실수령액 계산기',
     description: '4대 보험과 세금을 제외한 실제 월 수령액을 정교하게 계산합니다.',
     category: 'tax',
@@ -425,6 +434,7 @@ const calculators = [
   },
   {
     id: 'hourly-to-monthly',
+    url: '/hourly-wage-calculator.html',
     title: '시급 ↔ 월급 변환기',
     description: '시급을 월급으로, 월급을 시급으로 근로기준법 기준으로 변환합니다.',
     category: 'business',
@@ -466,6 +476,7 @@ const calculators = [
   },
   {
     id: 'mortgage-calc',
+    url: '/loan-calculator.html',
     title: '대출 이자/상환 계산기',
     description: '원리금 균등 상환 방식으로 대출 이자와 월 상환액을 계산합니다.',
     category: 'finance',
@@ -518,6 +529,7 @@ const calculators = [
   },
   {
     id: 'fuel-cost-calc',
+    url: '/fuel-cost-calculator.html',
     title: '유류비 계산기',
     description: '주행 거리와 연비를 바탕으로 예상 유류비를 계산합니다.',
     category: 'life',
@@ -562,6 +574,7 @@ const calculators = [
   },
   {
     id: 'percent-calc',
+    url: '/percent-calculator.html',
     title: '퍼센트/증감율 계산기',
     description: '비즈니스 보고서에 필수적인 증감율 및 퍼센트 계산을 지원합니다.',
     category: 'business',
@@ -602,6 +615,7 @@ const calculators = [
   },
   {
     id: 'bmi-calc',
+    url: '/bmi-calculator.html',
     title: 'BMI 비만도 계산기',
     description: '키와 몸무게를 통해 건강 상태를 체크합니다.',
     category: 'health',
@@ -644,6 +658,50 @@ const calculators = [
         resultDiv.classList.remove('hidden');
       });
     }
+  },
+  {
+    id: 'currency-calc',
+    url: '/currency-calculator.html',
+    title: '환율 계산기',
+    description: '주요 국가의 환율을 바탕으로 한화 환산 금액을 계산합니다.',
+    category: 'finance',
+    icon: 'globe',
+    render: () => `
+      <div class="calc-header">
+        <h2>환율 계산기</h2>
+      </div>
+      <div class="input-group">
+        <label>외화 종류</label>
+        <select id="currency-unit">
+          <option value="1400">미국 달러 (USD)</option>
+          <option value="950">일본 엔 (100 JPY)</option>
+          <option value="1500">유럽 유로 (EUR)</option>
+          <option value="195">중국 위안 (CNY)</option>
+        </select>
+      </div>
+      <div class="input-group">
+        <label>외화 금액</label>
+        <input type="number" id="foreign-amount" placeholder="예: 100">
+      </div>
+      <button class="btn-calculate" id="calc-currency">원화로 환산</button>
+      <div id="result" class="result-area hidden"></div>
+    `,
+    init: () => {
+      document.getElementById('calc-currency').addEventListener('click', () => {
+        const rate = parseFloat(document.getElementById('currency-unit').value) || 0;
+        const amount = parseFloat(document.getElementById('foreign-amount').value) || 0;
+        let krw = rate * amount;
+        if(document.getElementById('currency-unit').value === "950") krw = krw / 100;
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>환산 결과</h4>
+          <div class="result-item"><span class="result-label">예상 원화 금액</span><span class="result-value">${Math.floor(krw).toLocaleString()}원</span></div>
+          <p style="font-size: 0.8rem; color: #64748b; margin-top: 1rem;">* 가상 환율 기준이며 실제 환율과 차이가 있을 수 있습니다.</p>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    }
   }
 ];
 
@@ -668,15 +726,16 @@ function updateMetadata(calc) {
   
   if (calc) {
     document.title = `${calc.title} - 다재다능 계산기`;
-    metaDesc.setAttribute('content', calc.description);
+    if (metaDesc) metaDesc.setAttribute('content', calc.description);
   } else {
     document.title = '다재다능 계산기';
-    metaDesc.setAttribute('content', '2026 연봉, 대출, 배당금 등 모든 필수 계산을 한곳에서 쉽고 빠르게!');
+    if (metaDesc) metaDesc.setAttribute('content', '2026 연봉, 대출, 배당금 등 모든 필수 계산을 한곳에서 쉽고 빠르게!');
   }
 }
 
 // Render Grid
 function renderGrid() {
+  if (!grid) return;
   grid.innerHTML = '';
   const filtered = calculators.filter(c => {
     const matchesCategory = currentCategory === 'all' || c.category === currentCategory;
@@ -686,9 +745,9 @@ function renderGrid() {
   });
 
   filtered.forEach(calc => {
-    // SEO: Use <a> tag with href for crawler navigation
+    // SEO: Use <a> tag with direct link for better crawling and AdSense
     const card = document.createElement('a');
-    card.href = `#${calc.id}`;
+    card.href = calc.url;
     card.className = 'calc-card';
     card.innerHTML = `
       <div class="icon-box">
@@ -697,11 +756,6 @@ function renderGrid() {
       <h3>${calc.title}</h3>
       <p>${calc.description}</p>
     `;
-    card.addEventListener('click', (e) => {
-      e.preventDefault();
-      showCalculator(calc);
-      history.pushState({ view: 'calculator', id: calc.id }, '', `#${calc.id}`);
-    });
     grid.appendChild(card);
   });
   
@@ -710,8 +764,9 @@ function renderGrid() {
   }
 }
 
-// Show Calculator
+// Show Calculator (Legacy for SPA support if needed, but now links directly)
 function showCalculator(calc) {
+  if (!gridContainer || !activeView || !calcContainer) return;
   gridContainer.classList.add('hidden');
   activeView.classList.remove('hidden');
   calcContainer.innerHTML = calc.render();
@@ -725,63 +780,41 @@ function showCalculator(calc) {
 
 // Back to list function
 function goBackToList() {
+  if (!activeView || !gridContainer) return;
   activeView.classList.add('hidden');
   gridContainer.classList.remove('hidden');
   updateMetadata(null);
   window.scrollTo(0, 0);
-  if (window.location.hash) {
-    history.pushState({ view: 'list' }, '', window.location.pathname);
-  }
 }
 
 // Logo click -> Home
-logo.style.cursor = 'pointer';
-logo.addEventListener('click', () => {
-  goBackToList();
-});
-
-// Back to list button
-backBtn.addEventListener('click', () => {
-  goBackToList();
-});
-
-// Deep Linking & Initial Load Handling
-function handleRoute() {
-  const hash = window.location.hash.replace('#', '');
-  if (hash) {
-    const calc = calculators.find(c => c.id === hash);
-    if (calc) {
-      showCalculator(calc);
-      return;
-    }
-  }
-  goBackToList();
+if (logo) {
+  logo.style.cursor = 'pointer';
+  logo.addEventListener('click', () => {
+    window.location.href = '/';
+  });
 }
 
-// Listen for hash changes (for back/forward buttons)
-window.addEventListener('hashchange', handleRoute);
-
-// Browser back button handling
-window.addEventListener('popstate', (event) => {
-  if (event.state && event.state.view === 'calculator') {
-    const calc = calculators.find(c => c.id === event.state.id);
-    if (calc) showCalculator(calc);
-  } else {
+// Back to list button
+if (backBtn) {
+  backBtn.addEventListener('click', () => {
     goBackToList();
-  }
-});
+  });
+}
 
 // Search
-searchInput.addEventListener('input', (e) => {
-  searchQuery = e.target.value;
-  renderGrid();
-});
+if (searchInput) {
+  searchInput.addEventListener('input', (e) => {
+    searchQuery = e.target.value;
+    renderGrid();
+  });
+}
 
 // Category Filter
 categoryItems.forEach(item => {
   item.addEventListener('click', () => {
-    activeView.classList.add('hidden');
-    gridContainer.classList.remove('hidden');
+    if (activeView) activeView.classList.add('hidden');
+    if (gridContainer) gridContainer.classList.remove('hidden');
     categoryItems.forEach(i => i.classList.remove('active'));
     item.classList.add('active');
     currentCategory = item.dataset.category;
@@ -792,4 +825,3 @@ categoryItems.forEach(item => {
 
 // Init
 renderGrid();
-handleRoute();

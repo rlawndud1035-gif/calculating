@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-6454047865688551">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6454047865688551" crossorigin="anonymous"></script>
+  <title>평수 변환기 - 아파트 평수 ↔ 제곱미터(㎡) 자동 계산</title>
+  <meta name="description" content="아파트나 토지 면적을 평수에서 제곱미터로, 제곱미터에서 평수로 간편하게 변환하세요. 부동산 계약 및 인테리어 시 필수 도구.">
+  <link rel="canonical" href="https://calculatin.pages.dev/pyeong-to-m2-calculator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href='/style.css' rel='stylesheet'>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="logo-container">
+        <a href="/" class="logo-link"><h1 class="logo">다재다능 계산기</h1></a>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <div class="active-calculator-view">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="1414141414" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div id="calculator-container">
+          <div class="calc-header">
+            <h2>평수 ↔ 제곱미터 변환기</h2>
+            <p>아파트 평수와 제곱미터(㎡)를 상호 변환합니다.</p>
+          </div>
+          <div class="input-group">
+            <label>평수 (평)</label>
+            <input type="number" id="val-pyeong" placeholder="예: 34">
+          </div>
+          <div class="input-group">
+            <label>제곱미터 (㎡)</label>
+            <input type="number" id="val-m2" placeholder="예: 112">
+          </div>
+          <div class="calc-guide">
+            <strong>정보:</strong> 1평 = 3.305785㎡ / 1㎡ = 0.3025평
+          </div>
+        </div>
+
+        <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #e2e8f0;">
+
+        <section class="guide-content">
+          <h2>이 계산기란?</h2>
+          <p>
+            평수 변환기는 일상생활에서 여전히 많이 쓰이는 '평(坪)' 단위와 공식적인 법정 단위인 '제곱미터(㎡)' 사이의 간극을 메워주는 도구입니다. 대한민국 정부는 2007년부터 법정 계량 단위 사용을 의무화하여 아파트 분양이나 토지 대장 등 모든 공식 문서에 제곱미터를 사용하고 있습니다. 하지만 여전히 많은 사람이 "우리 집은 34평형이야"라고 말하는 것이 익숙합니다.
+          </p>
+          <p>
+            이 계산기는 부동산 매물을 보거나 가구 배치를 계획할 때, 또는 인테리어 견적을 받을 때 매우 유용합니다. 복잡한 소수점 계산 없이 수치만 입력하면 즉시 다른 단위로 변환해 주어, 공간의 크기를 직관적으로 파악할 수 있도록 돕습니다.
+          </p>
+
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="1515151515" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+          <h2>계산 방법 및 공식</h2>
+          <p>
+            평수와 제곱미터 사이의 변환 공식은 다음과 같습니다:
+          </p>
+          <ul>
+            <li><strong>평 → 제곱미터:</strong> 평수 × 3.305785</li>
+            <li><strong>제곱미터 → 평:</strong> 제곱미터 × 0.3025 (또는 제곱미터 / 3.3058)</li>
+          </ul>
+          <p>
+            암산 팁: 제곱미터 수치의 끝자리 수를 떼어내고 3을 곱하면 대략적인 평수가 나옵니다. 예컨대 112㎡라면, 11 × 3 = 33평 정도로 짐작할 수 있습니다. 하지만 정확한 계약 수치를 위해서는 본 계산기를 사용하는 것이 좋습니다.
+          </p>
+
+          <h2>활용 예시</h2>
+          <p><strong>1. 아르바이트 구직 시:</strong> (이 예시는 평수와 맞지 않으므로 수정) <strong>1. 아파트 매물 확인:</strong> 부동산 포털에 '전용면적 84.99㎡'라고 표시된 매물을 보았을 때, 이것이 우리가 흔히 말하는 '34평형(공급면적 기준)' 아파트의 전용 25.7평형임을 즉시 이해할 수 있습니다.</p>
+          <p><strong>2. 벽지 및 장판 주문:</strong> 방 하나의 가로세로를 곱해 나온 면적이 15㎡일 때, 이를 평수로 변환하여(약 4.5평) 자재를 얼마나 주문해야 하는지 계산할 수 있습니다.</p>
+
+          <h2>자주 묻는 질문(FAQ)</h2>
+          <dl class="seo-faq">
+            <dt>Q. 왜 공식 문서에는 평 단위를 못 쓰게 하나요?</dt>
+            <dd>국제 표준 단위인 미터법을 사용하여 거래의 투명성을 높이고 단위 혼선으로 인한 피해를 막기 위해서입니다. '평'은 일제강점기 시절 도입된 단위이기도 합니다.</dd>
+            
+            <dt>Q. 전용면적과 공용면적의 차이는 무엇인가요?</dt>
+            <dd>전용면적은 현관문 안쪽 실제 거주 공간이며, 공용면적은 계단, 엘리베이터 등 공동 사용 공간입니다. 보통 '몇 평형'이라고 부를 때는 전용+공용을 합친 공급면적을 의미하는 경우가 많습니다.</dd>
+            
+            <dt>Q. 1평은 정확히 어느 정도 크기인가요?</dt>
+            <dd>가로세로가 각각 약 1.818m인 사각형의 넓이입니다. 보통 성인 한 명이 대자로 누웠을 때 차지하는 공간보다 약간 넓은 수준이라고 생각하면 이해하기 쉽습니다.</dd>
+          </dl>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <nav class="footer-links">
+        <a href="/about.html">서비스 소개</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+      </nav>
+      <p>&copy; 2026 다재다능 계산기. 모든 정보는 참고용이며 법적 증빙 자료로 활용될 수 없습니다.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      const pInput = document.getElementById('val-pyeong');
+      const mInput = document.getElementById('val-m2');
+      
+      pInput.addEventListener('input', () => {
+        const val = parseFloat(pInput.value) || 0;
+        mInput.value = (val * 3.305785).toFixed(2);
+      });
+      
+      mInput.addEventListener('input', () => {
+        const val = parseFloat(mInput.value) || 0;
+        pInput.value = (val * 0.3025).toFixed(2);
+      });
+    });
+  </script>
+</body>
+</html>

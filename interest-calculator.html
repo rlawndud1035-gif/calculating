@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-6454047865688551">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6454047865688551" crossorigin="anonymous"></script>
+  <title>예적금 이자 계산기 - 단리 복리 및 세후 수령액 계산</title>
+  <meta name="description" content="정기 예금 및 적금의 이자를 단리와 복리 방식으로 계산하세요. 일반과세(15.4%)를 제외한 실제 만기 수령액을 즉시 확인할 수 있습니다.">
+  <link rel="canonical" href="https://calculatin.pages.dev/interest-calculator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href='/style.css' rel='stylesheet'>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="logo-container">
+        <a href="/" class="logo-link"><h1 class="logo">다재다능 계산기</h1></a>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <div class="active-calculator-view">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="1616161616" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div id="calculator-container">
+          <div class="calc-header">
+            <h2>예적금 이자 계산기</h2>
+            <p>단리/복리 이자와 세후 실수령액을 계산합니다.</p>
+          </div>
+          <div class="input-group">
+            <label>예치 금액 (원)</label>
+            <input type="number" id="save-principal" placeholder="예: 10000000">
+          </div>
+          <div class="input-group">
+            <label>연 이자율 (%)</label>
+            <input type="number" id="save-rate" placeholder="예: 4.0">
+          </div>
+          <div class="input-group">
+            <label>예치 기간 (개월)</label>
+            <input type="number" id="save-period" placeholder="예: 12">
+          </div>
+          <div class="input-group">
+            <label>이자 방식</label>
+            <select id="interest-type">
+              <option value="simple">단리</option>
+              <option value="compound">월 복리</option>
+            </select>
+          </div>
+          <button class="btn-calculate" id="calc-savings">이자 계산하기</button>
+          <div id="result" class="result-area hidden"></div>
+        </div>
+
+        <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #e2e8f0;">
+
+        <section class="guide-content">
+          <h2>이 계산기란?</h2>
+          <p>
+            예적금 이자 계산기는 목돈을 은행에 맡기거나 매달 일정 금액을 저축할 때, 만기에 내가 실제로 받게 될 원금과 이자의 합계액을 미리 산출해 주는 도구입니다. 재테크의 기본은 '수익률'을 정확히 파악하는 것인데, 이 계산기는 단리와 복리의 차이는 물론 대한민국 표준 이자소득세(15.4%)까지 자동으로 공제하여 보여줍니다.
+          </p>
+          <p>
+            단순히 은행 앱에서 보여주는 세전 이자에 현혹되지 않고, 실제로 내 주머니에 들어오는 '세후 실수령액'을 확인하는 것은 자산 관리 계획을 세울 때 매우 중요합니다. 특히 예치 기간이 길어질수록 복리 효과가 어떻게 나타나는지 시각적으로 비교해 볼 수 있어, 장기 저축의 동기 부여를 돕습니다.
+          </p>
+
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="1717171717" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+          <h2>계산 방법 및 공식</h2>
+          <p>
+            이자 계산 방식은 사용자가 선택한 방식에 따라 다릅니다:
+          </p>
+          <ul>
+            <li><strong>단리 방식:</strong> 원금에 대해서만 이자가 붙습니다. (이자 = 원금 × 이율 × 기간)</li>
+            <li><strong>월 복리 방식:</strong> 매달 발생한 이자가 원금에 더해져 다음 달 이자를 만듭니다. {원금 × (1 + 월이율)^개월수}</li>
+            <li><strong>세금 공제:</strong> 이자 총액에서 15.4%(소득세 14% + 지방소득세 1.4%)를 공제합니다.</li>
+          </ul>
+          <p>
+            예시: 1,000만 원을 연 4% 단리 상품에 1년 예치하면 세전 이자는 40만 원이지만, 세금 61,600원을 뺀 338,400원이 실제 이자가 됩니다.
+          </p>
+
+          <h2>활용 예시</h2>
+          <p><strong>1. 목돈 운용처 결정:</strong> 만기가 돌아온 5,000만 원을 A은행 예금(단리 3.8%)과 B은행 예금(복리 3.6%) 중 어디에 넣는 것이 실질 수익이 더 높은지 비교할 때 활용합니다.</p>
+          <p><strong>2. 결혼 자금 마련 목표 설정:</strong> 2년 뒤 3,000만 원을 만들기 위해 지금 얼마를 예치해야 하는지, 혹은 어떤 금리의 상품을 찾아야 하는지 역산해 보는 용도로 사용합니다.</p>
+
+          <h2>자주 묻는 질문(FAQ)</h2>
+          <dl class="seo-faq">
+            <dt>Q. 비과세 종합저축은 무엇인가요?</dt>
+            <dd>만 65세 이상 고령자나 장애인 등 특정 요건을 갖춘 경우, 1인당 5,000만 원 한도 내에서 이자소득세를 전혀 내지 않는 제도입니다. 이 경우 본 계산기 결과보다 수령액이 더 많아집니다.</dd>
+            
+            <dt>Q. 적금과 예금의 이자 계산 방식이 똑같나요?</dt>
+            <dd>아니요, 적금은 매달 들어가는 돈마다 거치 기간이 다르므로 예금보다 실질 이자가 적습니다. 본 계산기는 현재 '일시불 예치(예금)'를 기준으로 설계되었습니다.</dd>
+            
+            <dt>Q. 복리가 항상 유리한가요?</dt>
+            <dd>보통은 그렇지만, 금리가 낮거나 기간이 짧으면 단리와의 차이가 미미할 수 있습니다. 하지만 기간이 3년, 5년 이상으로 길어지면 복리의 마법이 강력해집니다.</dd>
+          </dl>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <nav class="footer-links">
+        <a href="/about.html">서비스 소개</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+      </nav>
+      <p>&copy; 2026 다재다능 계산기. 모든 정보는 참고용이며 법적 증빙 자료로 활용될 수 없습니다.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      document.getElementById('calc-savings').addEventListener('click', () => {
+        const principal = parseFloat(document.getElementById('save-principal').value) || 0;
+        const rate = parseFloat(document.getElementById('save-rate').value) / 100 || 0;
+        const period = parseFloat(document.getElementById('save-period').value) || 0;
+        const type = document.getElementById('interest-type').value;
+
+        let interest = 0;
+        if (type === 'simple') {
+          interest = principal * rate * (period / 12);
+        } else {
+          interest = principal * (Math.pow(1 + rate / 12, period) - 1);
+        }
+
+        const tax = interest * 0.154; // 일반과세 15.4%
+        const net = principal + interest - tax;
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>만기 수령액 상세</h4>
+          <div class="result-item"><span class="result-label">세전 이자</span><span class="result-value">${Math.floor(interest).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">이자소득세 (15.4%)</span><span class="result-value">-${Math.floor(tax).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">만기 실수령액</span><span class="result-value" style="color: #10b981;">${Math.floor(net).toLocaleString()}원</span></div>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

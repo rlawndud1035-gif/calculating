@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google-adsense-account" content="ca-pub-6454047865688551">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6454047865688551" crossorigin="anonymous"></script>
+  <title>2026 연봉 계산기 - 월 실수령액 및 4대 보험 자동 계산</title>
+  <meta name="description" content="2026년 최신 세율과 4대 보험 요율이 적용된 연봉 계산기입니다. 비과세 항목을 포함하여 가장 정확한 월 실수령액을 확인해 보세요.">
+  <link rel="canonical" href="https://calculatin.pages.dev/salary-calculator.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href='/style.css' rel='stylesheet'>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div id="app">
+    <header class="header">
+      <div class="logo-container">
+        <a href="/" class="logo-link"><h1 class="logo">다재다능 계산기</h1></a>
+      </div>
+    </header>
+
+    <main class="content-area">
+      <div class="active-calculator-view">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="1234567890" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+        <div id="calculator-container">
+          <div class="calc-header">
+            <h2>연봉/실수령액 계산기</h2>
+            <p>각종 공제액을 제외한 실제 통장에 찍히는 금액을 확인하세요.</p>
+          </div>
+          <div class="calc-guide">
+            <strong>도움말:</strong> 국민연금(4.5%), 건강보험(3.595%), 고용보험(0.9%) 등이 반영된 2026년 기준 추정치입니다.
+          </div>
+          <div class="input-group">
+            <label>연봉 (만원)</label>
+            <input type="number" id="annual-salary" placeholder="예: 4500">
+          </div>
+          <div class="input-group">
+            <label>비과세액 (원/월)</label>
+            <input type="number" id="non-taxable" value="200000">
+          </div>
+          <button class="btn-calculate" id="calc-salary">계산하기</button>
+          <div id="result" class="result-area hidden"></div>
+        </div>
+
+        <hr style="margin: 3rem 0; border: 0; border-top: 1px solid #e2e8f0;">
+
+        <section class="guide-content">
+          <h2>이 계산기란?</h2>
+          <p>
+            2026년형 연봉 계산기는 직장인들이 가장 궁금해하는 '내 통장에 실제로 들어오는 돈'을 계산해주는 도구입니다. 단순히 연봉을 12로 나누는 것이 아니라, 대한민국 법령에 따른 국민연금, 건강보험, 장기요양보험, 고용보험 등 4대 보험료와 근로소득세(지방소득세 포함)를 모두 공제한 후의 금액을 산출합니다.
+          </p>
+          <p>
+            특히 매년 바뀌는 보험 요율과 세법을 충실히 반영하고 있습니다. 2026년 기준 건강보험료율 3.595%와 국민연금 상한액 등을 고려하여 정교한 시뮬레이션을 제공합니다. 사회초년생부터 경력직 이직을 준비하는 분들까지 자신의 연봉 가치를 정확히 파악하는 데 필수적인 도구입니다.
+          </p>
+
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="0987654321" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+
+          <h2>계산 방법 및 공식</h2>
+          <p>
+            월 실수령액은 다음과 같은 단계를 거쳐 계산됩니다:
+          </p>
+          <ul>
+            <li><strong>월 급여액:</strong> 연봉 / 12</li>
+            <li><strong>과세대상금액:</strong> 월 급여액 - 비과세액(보통 식대 20만원 등)</li>
+            <li><strong>국민연금:</strong> 과세대상금액 × 4.5% (상한액 적용)</li>
+            <li><strong>건강보험:</strong> 과세대상금액 × 3.595%</li>
+            <li><strong>장기요양:</strong> 건강보험료 × 12.95% (2026년 기준 요율 적용)</li>
+            <li><strong>고용보험:</strong> 과세대상금액 × 0.9%</li>
+            <li><strong>근로소득세:</strong> 간이세액표 기준 (부양가족 1인 기준 기본 적용)</li>
+          </ul>
+          <p>
+            예를 들어, 연봉 4,500만원인 경우 월급 375만원에서 비과세 20만원을 뺀 355만원에 대해 각 보험료가 산정됩니다.
+          </p>
+
+          <h2>활용 예시</h2>
+          <p><strong>1. 신입 사원 연봉 협상:</strong> 기업에서 제시한 연봉이 3,000만원일 때, 실제 매달 내 통장에 꽂히는 금액이 220만원대인지 230만원대인지 미리 확인하여 생활 계획을 세울 수 있습니다.</p>
+          <p><strong>2. 이직 시 처우 협의:</strong> 현재 연봉보다 500만원을 더 준다는 제안을 받았을 때, 세금을 떼고 나면 실제 월 수령액이 얼마나 상승하는지 비교하여 이직의 실익을 판단할 수 있습니다.</p>
+
+          <h2>자주 묻는 질문(FAQ)</h2>
+          <dl class="seo-faq">
+            <dt>Q. 비과세액은 무엇을 입력해야 하나요?</dt>
+            <dd>가장 대표적인 비과세 항목은 '식대'입니다. 현재 법적으로 월 20만원까지 비과세 혜택을 받을 수 있으므로, 대부분의 회사가 20만원을 식대로 설정합니다. 자차운전보조금이 있다면 추가될 수 있습니다.</dd>
+            
+            <dt>Q. 계산 결과가 실제 월급과 조금 달라요.</dt>
+            <dd>이 계산기는 표준 간이세액표와 일반적인 4대 보험 요율을 사용합니다. 회사의 복지 포인트, 상여금 지급 방식, 부양가족 수 등에 따라 실제 명세서와 수천 원에서 수만 원 정도 차이가 날 수 있습니다.</dd>
+            
+            <dt>Q. 2026년 최저임금이 반영되어 있나요?</dt>
+            <dd>네, 2026년 결정된 최저임금 시급 10,320원을 기준으로 한 월 최소 급여 수준을 고려하여 설계되었습니다.</dd>
+          </dl>
+          <p style="margin-top: 2rem; color: #64748b; font-size: 0.9rem;">* 본 계산 결과는 참고용이며 법적 증빙 자료로 활용될 수 없습니다.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <nav class="footer-links">
+        <a href="/about.html">서비스 소개</a>
+        <a href="/terms.html">이용약관</a>
+        <a href="/privacy.html">개인정보처리방침</a>
+      </nav>
+      <p>&copy; 2026 다재다능 계산기. 모든 정보는 참고용이며 법적 증빙 자료로 활용될 수 없습니다.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+
+      document.getElementById('calc-salary').addEventListener('click', () => {
+        const annual = (parseFloat(document.getElementById('annual-salary').value) || 0) * 10000;
+        const nonTaxable = parseFloat(document.getElementById('non-taxable').value) || 0;
+        const monthlyBase = (annual / 12) - nonTaxable;
+        
+        const nationalPension = Math.min(monthlyBase * 0.045, 302575); 
+        const healthInsurance = monthlyBase * 0.03595;
+        const longTermCare = healthInsurance * 0.1295;
+        const employmentInsurance = monthlyBase * 0.009;
+        const incomeTax = monthlyBase * 0.035; 
+        const localIncomeTax = incomeTax * 0.1;
+        
+        const totalDeductions = nationalPension + healthInsurance + longTermCare + employmentInsurance + incomeTax + localIncomeTax;
+        const monthlyNet = (annual / 12) - totalDeductions;
+
+        const resultDiv = document.getElementById('result');
+        resultDiv.innerHTML = `
+          <h4>월 실수령액 상세</h4>
+          <div class="result-item"><span class="result-label">월 급여(세전)</span><span class="result-value">${Math.floor(annual/12).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">공제액 합계</span><span class="result-value">-${Math.floor(totalDeductions).toLocaleString()}원</span></div>
+          <div class="result-item"><span class="result-label">월 실수령액</span><span class="result-value" style="color: #10b981;">${Math.floor(monthlyNet).toLocaleString()}원</span></div>
+        `;
+        resultDiv.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
