@@ -8,6 +8,52 @@
   <title>부가세 계산기 - 공급가액 및 부가가치세 자동 계산</title>
   <meta name="description" content="합계 금액이나 공급가액을 입력하여 부가세(10%)를 즉시 계산하세요. 세금계산서 발행 및 견적서 작성 시 필수적인 업무용 도구.">
   <link rel="canonical" href="https://calculatin.pages.dev/vat-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calculatin.pages.dev/vat-calculator.html">
+  <meta property="og:title" content="부가세 계산기 - 공급가액 및 부가가치세(VAT) 자동 계산">
+  <meta property="og:description" content="합계 금액 또는 공급가액 기준 부가세(10%)를 즉시 계산. 세금계산서 발행·견적서 작성 시 필수 도구.">
+  <meta property="og:site_name" content="다재다능 계산기">
+  <meta property="og:image" content="https://calculatin.pages.dev/favicon.svg">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://calculatin.pages.dev/" },
+        { "@type": "ListItem", "position": 2, "name": "부가세 계산기", "item": "https://calculatin.pages.dev/vat-calculator.html" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "부가세 계산기",
+      "url": "https://calculatin.pages.dev/vat-calculator.html",
+      "description": "공급가액 또는 합계금액 기준으로 부가가치세를 자동 계산하는 비즈니스 도구",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "All",
+      "inLanguage": "ko",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "면세 사업자도 부가세를 내야 하나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "면세 사업자는 매출 시 부가세를 징수하지 않으며 세금계산서 대신 계산서를 발행합니다. 하지만 물건을 살 때는 부가세가 포함된 가격으로 사야 하며, 이때 낸 부가세는 환급받을 수 없습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "부가세율이 10%가 아닌 경우도 있나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "대한민국의 일반적인 부가세율은 10% 고정입니다. 다만 수출 재화 등에 대해서는 0%의 세율(영세율)이 적용되기도 합니다." }
+        }
+      ]
+    }
+  ]
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -25,6 +71,12 @@
 
     <main class="content-area">
       <div class="active-calculator-view">
+        <nav class="breadcrumb" aria-label="위치 경로">
+          <a href="/">홈</a>
+          <span class="bc-sep">›</span>
+          <span>부가세 계산기</span>
+        </nav>
+
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="5555555555" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
@@ -99,6 +151,24 @@
             <dt>Q. 공급가액 계산 시 소수점이 나오면 어떻게 하나요?</dt>
             <dd>보통 원 단위 미만은 절사(버림)하거나 반올림합니다. 본 계산기는 실무 관행에 따라 소수점 이하를 처리하여 정수 단위 결과를 보여줍니다.</dd>
           </dl>
+
+          <div class="related-calcs">
+            <h3>관련 계산기</h3>
+            <div class="related-calcs-grid">
+              <a href="/discount-calculator.html" class="related-calc-link">
+                <span>할인율 계산기</span>
+                <small>할인 금액·최종 가격 계산</small>
+              </a>
+              <a href="/percent-calculator.html" class="related-calc-link">
+                <span>퍼센트 계산기</span>
+                <small>증감율·비율 자동 계산</small>
+              </a>
+              <a href="/salary-calculator.html" class="related-calc-link">
+                <span>연봉/실수령액 계산기</span>
+                <small>4대 보험 공제 후 실수령액</small>
+              </a>
+            </div>
+          </div>
         </section>
       </div>
     </main>

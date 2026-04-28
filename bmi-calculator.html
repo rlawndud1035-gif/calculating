@@ -8,6 +8,57 @@
   <title>BMI 계산기 - 비만도 및 체질량 지수 측정</title>
   <meta name="description" content="키와 몸무게를 입력하여 나의 BMI 지수를 확인하세요. 비만도 판정과 건강 관리를 위한 표준 데이터를 제공합니다.">
   <link rel="canonical" href="https://calculatin.pages.dev/bmi-calculator.html">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://calculatin.pages.dev/bmi-calculator.html">
+  <meta property="og:title" content="BMI 계산기 - 비만도 및 체질량 지수 측정">
+  <meta property="og:description" content="키와 몸무게로 BMI 지수를 계산하고 건강 상태를 확인하세요. 대한비만학회·WHO 아시아태평양 기준 적용.">
+  <meta property="og:site_name" content="다재다능 계산기">
+  <meta property="og:image" content="https://calculatin.pages.dev/favicon.svg">
+  <script type="application/ld+json">
+  [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "홈", "item": "https://calculatin.pages.dev/" },
+        { "@type": "ListItem", "position": 2, "name": "BMI 비만도 계산기", "item": "https://calculatin.pages.dev/bmi-calculator.html" }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "BMI 비만도 계산기",
+      "url": "https://calculatin.pages.dev/bmi-calculator.html",
+      "description": "키와 몸무게를 입력하여 체질량 지수(BMI)와 비만도를 확인하는 건강 계산기",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "inLanguage": "ko",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "근육질 체형도 BMI가 정확한가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "BMI의 가장 큰 한계점은 지방과 근육을 구분하지 못한다는 것입니다. 운동선수처럼 근육량이 많은 사람은 지방이 적어도 BMI상으로는 과체중이나 비만으로 나올 수 있습니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "나이가 들어도 BMI 기준이 똑같나요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "일반적으로 성인 기준은 동일하지만, 고령자의 경우 약간의 과체중이 오히려 건강에 이롭다는 연구 결과도 있습니다. 자신의 신체 상황에 맞는 정확한 진단은 전문가와 상의하시기 바랍니다." }
+        },
+        {
+          "@type": "Question",
+          "name": "허리둘레와 BMI는 어떤 관계인가요?",
+          "acceptedAnswer": { "@type": "Answer", "text": "BMI가 정상이더라도 허리둘레가 굵다면 복부 비만일 수 있습니다. 건강을 위해서는 BMI와 허리둘레를 함께 체크하는 것이 더욱 정확합니다." }
+        }
+      ]
+    }
+  ]
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -25,6 +76,12 @@
 
     <main class="content-area">
       <div class="active-calculator-view">
+        <nav class="breadcrumb" aria-label="위치 경로">
+          <a href="/">홈</a>
+          <span class="bc-sep">›</span>
+          <span>BMI 비만도 계산기</span>
+        </nav>
+
         <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6454047865688551" data-ad-slot="7777777777" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
@@ -90,6 +147,24 @@
             <dt>Q. 허리둘레와는 어떤 관계인가요?</dt>
             <dd>BMI가 정상이더라도 허리둘레가 굵다면 '복부 비만'일 수 있습니다. 건강을 위해서는 BMI와 허리둘레를 함께 체크하는 것이 더욱 정확합니다.</dd>
           </dl>
+
+          <div class="related-calcs">
+            <h3>관련 계산기</h3>
+            <div class="related-calcs-grid">
+              <a href="/water-intake-calculator.html" class="related-calc-link">
+                <span>물 권장량 계산기</span>
+                <small>체중 기준 일일 수분 섭취량</small>
+              </a>
+              <a href="/salary-calculator.html" class="related-calc-link">
+                <span>연봉/실수령액 계산기</span>
+                <small>4대 보험 공제 후 실수령액</small>
+              </a>
+              <a href="/fuel-cost-calculator.html" class="related-calc-link">
+                <span>유류비 계산기</span>
+                <small>거리·연비 기준 주유비</small>
+              </a>
+            </div>
+          </div>
         </section>
       </div>
     </main>

@@ -839,3 +839,172 @@ body {
     justify-content: flex-end;
   }
 }
+
+/* ── 가이드 아티클 섹션 (메인 페이지 에디토리얼 콘텐츠) ── */
+.guide-articles-section {
+  margin-top: 4rem;
+  padding: 3rem 0;
+  border-top: 2px solid #f1f5f9;
+}
+
+.section-title-line {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.6rem;
+  padding-left: 1rem;
+  border-left: 5px solid #3b82f6;
+}
+
+.section-subtitle {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+  padding-left: 1.3rem;
+}
+
+.guide-articles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 1.8rem;
+  margin-top: 1.5rem;
+}
+
+.guide-article-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.guide-article-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+  border-color: #3b82f6;
+}
+
+.article-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.73rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+
+.article-badge.finance   { background: #eff6ff; color: #2563eb; }
+.article-badge.loan      { background: #fef2f2; color: #dc2626; }
+.article-badge.insurance { background: #f0fdf4; color: #16a34a; }
+.article-badge.biz       { background: #fefce8; color: #ca8a04; }
+.article-badge.health    { background: #fdf4ff; color: #9333ea; }
+.article-badge.currency  { background: #fff7ed; color: #ea580c; }
+
+.guide-article-card h3 {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 0.9rem;
+  line-height: 1.5;
+}
+
+.guide-article-card > p {
+  color: #475569;
+  font-size: 0.91rem;
+  line-height: 1.85;
+  flex: 1;
+  margin-bottom: 1.3rem;
+}
+
+.article-link {
+  color: #3b82f6;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.article-link:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* ── 관련 계산기 섹션 (개별 계산기 페이지) ── */
+.related-calcs {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 2px solid #f1f5f9;
+}
+
+.related-calcs h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 1.2rem;
+}
+
+.related-calcs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 0.9rem;
+}
+
+.related-calc-link {
+  display: block;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.related-calc-link:hover {
+  background: #eff6ff;
+  border-color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.related-calc-link span {
+  display: block;
+  font-weight: 600;
+  color: #1e293b;
+  font-size: 0.87rem;
+  margin-bottom: 0.25rem;
+}
+
+.related-calc-link small {
+  color: #64748b;
+  font-size: 0.77rem;
+  line-height: 1.4;
+}
+
+/* ── 브레드크럼 ── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.82rem;
+  color: #64748b;
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.breadcrumb a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .bc-sep { color: #94a3b8; font-size: 0.75rem; }
+
+@media (max-width: 768px) {
+  .guide-articles-section { margin-top: 2.5rem; padding: 2rem 0; }
+  .section-title-line { font-size: 1.25rem; }
+  .guide-articles-grid { grid-template-columns: 1fr; }
+  .related-calcs-grid { grid-template-columns: repeat(2, 1fr); }
+}
