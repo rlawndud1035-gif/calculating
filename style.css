@@ -156,6 +156,7 @@ body {
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .calc-card:hover {
@@ -181,12 +182,14 @@ body {
   font-size: 1.25rem;
   font-weight: 700;
   color: #1e293b;
+  text-decoration: none;
 }
 
 .calc-card p {
   color: var(--text-muted);
   font-size: 0.95rem;
   line-height: 1.5;
+  text-decoration: none;
 }
 
 .hidden {
